@@ -7,53 +7,92 @@
   <ion-app>
     <ion-content>
       <ion-card>
-        <ion-tabs>
-          <ion-tab tab="tab-contact" component="page-contact">
-            <ion-nav></ion-nav>
-          </ion-tab>
-          <ion-tab tab="tab-friends" component="page-friends">
-            <ion-nav></ion-nav>
-          </ion-tab>
-          <ion-tab tab="tab-home" component="page-home">
-            <ion-nav></ion-nav>
-          </ion-tab>
-          <ion-tab tab="tab-profile" component="page-profile">
-            <ion-nav></ion-nav>
-          </ion-tab>
-          <ion-tab-bar slot="bottom">
-            <ion-tab-button tab="tab-home">
-              <ion-icon name="home"></ion-icon>
-              <ion-label>Home</ion-label>
-            </ion-tab-button>
-            <ion-tab-button tab="tab-contact">
-              <ion-icon name="chatboxes"></ion-icon>
-              <ion-label>Contact Your Reps</ion-label>
-            </ion-tab-button>
-            <ion-tab-button tab="tab-friends">
-              <ion-icon name="contacts"></ion-icon>
-              <ion-label>Friends</ion-label>
-            </ion-tab-button>
-            <ion-tab-button tab="tab-profile">
-              <ion-icon name="contact"></ion-icon>
-              <ion-label>Profile</ion-label>
-            </ion-tab-button>
-          </ion-tab-bar>
-        </ion-tabs>
         <ion-card-content>
-          <img src="http://cdn.onlinewebfonts.com/svg/img_462738.png">
-          <ion-button color="dark" shape="round" fill="outline">
-            <ion-icon name="stats"></ion-icon>
-          </ion-button>
-          <ion-button fill="outline" color="success" shape="round">Support</ion-button>
-          <ion-button fill="outline" color="medium" shape="round">Neutral</ion-button>
-          <ion-button fill="outline" color="danger" shape="round">Oppose</ion-button>
-          <ion-card-header>
-            <ion-card-title>Bill Name</ion-card-title>
-          </ion-card-header>
-          Description of the bill grabbed from API
+          <ion-row align-items-start>
+            <ion-col size="8">
+              <ion-card-header>
+                <ion-card-title>H.R. 8: Bipartisan Background Checks Act of 2019</ion-card-title>
+              </ion-card-header>
+            </ion-col>
+            <ion-col size="1" offset="3">
+              <ion-button color="dark" shape="round" fill="outline">
+                <ion-icon name="stats"></ion-icon>
+              </ion-button>
+            </ion-col>
+          </ion-row>
+          <ion-row align-items-start>
+            <ion-col offset=".2" size="8">
+              <ion-card-subtitle>
+                A topic sentence is a sentence that indicates in a general way
+                what idea or thesis the paragraph is going to deal with. Although
+                not all paragraphs have clear-cut topic sentences, and despite the
+                fact that topic sentences can occur anywhere in the paragraph
+                (as the first sentence, the last sentence, or somewhere in the middle),
+                an easy way to make sure your reader understands the topic of the
+                paragraph is to put your topic sentence near the beginning of the
+                paragraph. (This is a good general rule for less experienced writers,
+                although it is not the only way to do it). Regardless of whether you
+                include an explicit topic sentence or not, you should be able to easily
+                summarize what the paragraph is about.
+              </ion-card-subtitle>
+            </ion-col>
+            <ion-col size="1" offset="1">
+            </ion-col>
+          </ion-row>
+          <ion-row align-items-start>
+            <ion-col size="6">
+            </ion-col>
+            <ion-col size="6">
+            </ion-col>
+            <ion-col size="6">
+            </ion-col>
+          </ion-row>
+          <ion-row align-items-start>
+            <ion-col size="4">
+              <ion-button fill="outline" color="success" shape="round">Support</ion-button>
+            </ion-col>
+            <ion-col offset="1" size="4">
+              <ion-button fill="outline" color="medium" shape="round">Neutral</ion-button>
+            </ion-col>
+            <ion-col offset="1.6" size="1">
+              <ion-button fill="outline" color="danger" shape="round">Oppose</ion-button>
+            </ion-col>
+          </ion-row>
         </ion-card-content>
       </ion-card>
     </ion-content>
+    <!-- <ion-tabs>
+      <ion-tab tab="tab-contact" component="page-contact">
+        <ion-nav></ion-nav>
+      </ion-tab>
+      <ion-tab tab="tab-friends" component="page-friends">
+        <ion-nav></ion-nav>
+      </ion-tab>
+      <ion-tab tab="tab-home" component="page-home">
+        <ion-nav></ion-nav>
+      </ion-tab>
+      <ion-tab tab="tab-profile" component="page-profile">
+        <ion-nav></ion-nav>
+      </ion-tab>
+      <ion-tab-bar slot="bottom">
+        <ion-tab-button tab="tab-home">
+          <ion-icon name="home"></ion-icon>
+          <ion-label>Home</ion-label>
+        </ion-tab-button>
+        <ion-tab-button tab="tab-contact">
+          <ion-icon name="chatboxes"></ion-icon>
+          <ion-label>Contact Your Reps</ion-label>
+        </ion-tab-button>
+        <ion-tab-button tab="tab-friends">
+          <ion-icon name="contacts"></ion-icon>
+          <ion-label>Friends</ion-label>
+        </ion-tab-button>
+        <ion-tab-button tab="tab-profile">
+          <ion-icon name="contact"></ion-icon>
+          <ion-label>Profile</ion-label>
+        </ion-tab-button>
+      </ion-tab-bar>
+    </ion-tabs> -->
   </ion-app>
 </body>
 </html>
