@@ -1,0 +1,126 @@
+<html>
+<head>
+  <script src="https://unpkg.com/@ionic/core@latest/dist/ionic.js"></script>
+  <link rel="stylesheet" href="https://unpkg.com/@ionic/core@latest/css/ionic.bundle.css"/>
+</head>
+<body>
+  <ion-app>
+    <ion-card>
+      <ion-slides pager="true">
+        <ion-slide>
+          <h1>
+            Welcome
+            <br>
+            to
+            <!-- <img src="https://i.imgur.com/ecx0NXa.jpg"> -->
+            <ion-card-subtitle>Swipe to continue</ion-card-subtitle>
+          </h1>
+        </ion-slide>
+        <ion-slide>
+          <h1>
+            <ion-card-title>
+              What does InSession do?
+            </ion-card-title>
+            <br>
+            <ion-card-title>
+              We give you the tools to directly engage with your government.
+              We help you stay up to date with bills currently in congress
+              and give you easy ways to influence your elected representatives.
+            </ion-card-title>
+            <br>
+            <ion-card-subtitle>
+              Let's get started!
+            </ion-card-subtitle>
+          </h1>
+        </ion-slide>
+        <ion-slide>
+          <ion-card-title>
+            Set up your account
+          </ion-card-title>
+          <ion-item>
+            <ion-label position="floating">First Name</ion-label>
+            <ion-input></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-label position="floating">Last Name</ion-label>
+            <ion-input></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-label position="floating">email</ion-label>
+            <ion-input></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-label position="floating">password</ion-label>
+            <ion-input></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-label position="floating">confirm password</ion-label>
+            <ion-input></ion-input>
+          </ion-item>
+        </ion-slide>
+        <ion-slide>
+          <h1>
+            <ion-card-title>
+              Verify your account
+            </ion-card-title>
+            <ion-item>
+              <ion-label position="floating">Phone Number</ion-label>
+              <ion-input></ion-input>
+            </ion-item>
+            <ion-card-subtitle>
+              Please enter your phone number to recieve a verification code
+            </ion-card-subtitle>
+            <ion-item>
+              <ion-label position="floating">Verification Code</ion-label>
+              <ion-input></ion-input>
+            </ion-item>
+            <ion-card-subtitle>
+              Enter the code texted to you here:
+            </ion-card-subtitle>
+          </h1>
+        </ion-slide>
+        <ion-slide>
+          <h1>
+            <ion-card-title>
+              Other Information
+            </ion-card-title>
+            <ion-item>
+              <ion-label position="floating">Zip Code</ion-label>
+              <ion-input></ion-input>
+            </ion-item>
+            <ion-card-subtitle>
+              We need your Zip Code to find your representatives
+            </ion-card-subtitle>
+            <ion-list>
+              <ion-item>
+                <ion-label>Gender</ion-label>
+                <ion-select id="customActionSheetSelect" interface="action-sheet" placeholder="Select One">
+                  <ion-select-option value="male">Male</ion-select-option>
+                  <ion-select-option value="female">Female</ion-select-option>
+                  <ion-select-option value="prefer-not-gender">Prefer not to answer</ion-select-option>
+                </ion-select>
+              </ion-item>
+              <ion-item>
+                <ion-label>Party Affiliation</ion-label>
+                <ion-select id="customActionSheetSelect" interface="action-sheet" placeholder="Select One">
+                  <ion-select-option value="republican">Republican</ion-select-option>
+                  <ion-select-option value="democrat">Democrat</ion-select-option>
+                  <ion-select-option value="independant">Independant</ion-select-option>
+                  <ion-select-option value="prefer-not-party">Prefer not to answer</ion-select-option>
+                </ion-select>
+              </ion-item>
+            </ion-list>
+          </h1>
+        </ion-slide>
+        <ion-slide>
+          <h1>
+            <ion-card-title>
+              That's It!
+            </ion-card-title>
+          </h1>
+        </ion-slide>
+      </ion-slides>
+    </ion-card>
+  </ion-app>
+</body>
+</html>
