@@ -1,6 +1,5 @@
 from flask import Flask, render_template, url_for, request
 import json
-import pandas as pd
 import os
 import random
 
