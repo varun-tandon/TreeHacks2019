@@ -93,12 +93,12 @@ def get_governor_access():
 
     return response.text
 
-@app.route('/send_sms_to_user', methods=['POST'])
+@app.route('/send_sms_to_user', methods=['GET'])
 def send_sms_to_user():
     url = "https://api.authy.com/protected/json/phones/verification/start"
     content = request.get_json()
     phone_number = content["phone_number"]
-    payload = "api_key=tzsvpYNDQSEsQqFnYT5sNeCWNLXs7Qum&via=sms&phone_number=" + phone_number + "&country_code=1&undefined="
+    payload = "api_key=***REMOVED***&via=sms&phone_number=" + phone_number + "&country_code=1&undefined="
     headers = {
         'Content-Type': "application/x-www-form-urlencoded",
         'cache-control': "no-cache",
@@ -107,21 +107,24 @@ def send_sms_to_user():
 
     response = requests.request("POST", url, data=payload, headers=headers)
 
-    print(response.text)
+    return response.text
 
-@app.route('/verify_user', methods=['POST'])
+@app.route('/verify_user', methods=['GET'])
 def get_Verification():
     url = "https://api.authy.com/protected/json/phones/verification/check"
     content = request.get_json()
     phone_number = content["phone_number"]
     verification_code = content["verification_code"]
-    payload = "api_key=tzsvpYNDQSEsQqFnYT5sNeCWNLXs7Qum&verification_code=" + verification_code + "&phone_number=" + phone_number + "&country_code=1&undefined="
+    url = "https://api.authy.com/protected/json/phones/verification/check"
+    querystring = {"api_key":"***REMOVED***","verification_code": verification_code,"phone_number": phone_number,"country_code":"1"}
+
+    payload = ""
     headers = {
         'Content-Type': "application/x-www-form-urlencoded",
         'cache-control': "no-cache",
-        'Postman-Token': "82c404e3-6e66-4a4b-ae14-0ea702ce44c8"
+        'Postman-Token': "3f68ad36-0caf-4713-860f-27f145fe85b8"
         }
 
-    response = requests.request("POST", url, data=payload, headers=headers)
+    response = requests.request("GET", url, data=payload, headers=headers, params=querystring)
 
-    print(response.text)
+    return response.text
