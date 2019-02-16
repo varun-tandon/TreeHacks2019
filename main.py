@@ -6,12 +6,12 @@ import hashlib, uuid
 import requests
 from .src.entities.entity import Session, engine, Base
 from .src.entities.user import User
+from sqlalchemy import and_
 
 Base.metadata.create_all(engine)
 
 #start session
 session = Session()
-#
 app = Flask(__name__)
 
 @app.route('/')
@@ -22,10 +22,20 @@ def homepage():
 def create_user():
     request_json = request.get_json()
     hashed_password = hashlib.sha512(request_json['password'].encode('utf-8')).hexdigest()
-    new_user = User(request_json['email'], hashed_password)
-    session.add(new_user)
-    session.commit()
-    return "completed"
+    if(session.query(User).filter(User.email == request_json['email']).count() == 0):
+        new_user = User(request_json['email'], hashed_password)
+        session.add(new_user)
+        session.commit()
+        return "completed"
+    return "user already exists"
+
+@app.route('/login', methods=['POST'])
+def login_user():
+    request_json = request.get_json()
+    hashed_password = hashlib.sha512(request_json['password'].encode('utf-8')).hexdigest()
+    if(session.query(User).filter(and_(User.email == request_json['email'], User.password == hashed_password)).count() == 1):
+        return "SUCCESS"
+    return "0 or more users"
 
 # NATIONAL_EXEC : Refers to the President, VP, etc
 # NATIONAL_UPPER : Refers to U.S. Senate members
