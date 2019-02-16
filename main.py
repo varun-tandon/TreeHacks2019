@@ -3,11 +3,7 @@ import json
 import os, sys
 import random
 import hashlib, uuid
-<<<<<<< HEAD
 import requests
-
-=======
->>>>>>> 3c43ebaa400610b1e98be768136035d3251ce2cf
 from .src.entities.entity import Session, engine, Base
 from .src.entities.user import User
 
