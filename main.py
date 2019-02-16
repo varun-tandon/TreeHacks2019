@@ -93,7 +93,7 @@ def get_governor_access():
 
     return response.text
 
-@app.route('/send_sms_to_user', methods=['GET'])
+@app.route('/send_sms_to_user', methods=['POST'])
 def send_sms_to_user():
     url = "https://api.authy.com/protected/json/phones/verification/start"
     content = request.get_json()
@@ -103,6 +103,23 @@ def send_sms_to_user():
         'Content-Type': "application/x-www-form-urlencoded",
         'cache-control': "no-cache",
         'Postman-Token': "b6895b26-2acb-40bd-9e35-60fc2d1634a8"
+        }
+
+    response = requests.request("POST", url, data=payload, headers=headers)
+
+    print(response.text)
+
+@app.route('/verify_user', methods=['POST'])
+def get_Verification():
+    url = "https://api.authy.com/protected/json/phones/verification/check"
+    content = request.get_json()
+    phone_number = content["phone_number"]
+    verification_code = content["verification_code"]
+    payload = "api_key=tzsvpYNDQSEsQqFnYT5sNeCWNLXs7Qum&verification_code=" + verification_code + "&phone_number=" + phone_number + "&country_code=1&undefined="
+    headers = {
+        'Content-Type': "application/x-www-form-urlencoded",
+        'cache-control': "no-cache",
+        'Postman-Token': "82c404e3-6e66-4a4b-ae14-0ea702ce44c8"
         }
 
     response = requests.request("POST", url, data=payload, headers=headers)
