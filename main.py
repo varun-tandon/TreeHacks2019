@@ -3,7 +3,6 @@ import json
 import os, sys
 import random
 import hashlib, uuid
-
 from .src.entities.entity import Session, engine, Base
 from .src.entities.user import User
 
