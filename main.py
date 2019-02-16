@@ -144,6 +144,12 @@ def azure_text_sentiment():
         'Postman-Token': "ee259beb-4450-4d89-9023-0fded2a3998e"
         }
 
-    response = requests.request("POST", url, data=payload, headers=headers)
 
-    return response.text
+    response = requests.request("POST", url, data=payload, headers=headers)
+    json_response = json.dumps(response.text)
+    text_score = json_response[41:59]
+    # score = float(text_score)
+    # print(score)
+    return text_score
+
+def
