@@ -23,3 +23,20 @@ def create_user():
     session.add(new_user)
     session.commit()
     return "completed"
+
+
+@app.route('/access_rep_info', methods=['GET'])
+def get_rep_access():
+    url = "https://q4ktfaysw3.execute-api.us-east-1.amazonaws.com/treehacks/legislators"
+    content = request.get_json()
+
+    querystring = {"address": content['zipcode']}
+
+    headers = {
+        'x-api-key': "2e1uvo7yeX50ZGHvctPxi8ZWubhggyOydIWvOa5c",
+        'Content-Type': "application/x-www-form-urlencoded",
+        }
+
+    response = requests.request("GET", url, headers=headers, params=querystring)
+
+    return response.text
