@@ -8,19 +8,20 @@
     <ion-content>
       <ion-card>
         <ion-card-content>
-          <ion-row align-items-start>
+          <ion-grid>
+          <ion-row>
             <ion-col size="8">
               <ion-card-header>
                 <ion-card-title>H.R. 8: Bipartisan Background Checks Act of 2019</ion-card-title>
               </ion-card-header>
             </ion-col>
-            <ion-col size="1" offset="3">
+            <ion-col offset="3" align-self-end>
               <ion-button color="dark" shape="round" fill="outline">
                 <ion-icon name="stats"></ion-icon>
               </ion-button>
             </ion-col>
           </ion-row>
-          <ion-row align-items-start>
+          <ion-row justify-content-start>
             <ion-col offset=".2" size="8">
               <ion-card-subtitle>
                 A topic sentence is a sentence that indicates in a general way
@@ -36,10 +37,10 @@
                 summarize what the paragraph is about.
               </ion-card-subtitle>
             </ion-col>
-            <ion-col size="1" offset="1">
+            <ion-col>
             </ion-col>
           </ion-row>
-          <ion-row align-items-start>
+          <ion-row>
             <ion-col size="6">
             </ion-col>
             <ion-col size="6">
@@ -47,17 +48,18 @@
             <ion-col size="6">
             </ion-col>
           </ion-row>
-          <ion-row align-items-start>
-            <ion-col size="4">
+          <ion-row justify-content-center>
+            <ion-col size="4" align-self-start>
               <ion-button fill="outline" color="success" shape="round">Support</ion-button>
             </ion-col>
-            <ion-col offset="1" size="4">
+            <ion-col size="4" align-self-center>
               <ion-button fill="outline" color="medium" shape="round">Neutral</ion-button>
             </ion-col>
-            <ion-col offset="1.6" size="1">
+            <ion-col size="1" align-self-end>
               <ion-button fill="outline" color="danger" shape="round">Oppose</ion-button>
             </ion-col>
           </ion-row>
+        </ion-grid>
         </ion-card-content>
       </ion-card>
     </ion-content>
