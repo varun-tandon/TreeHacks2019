@@ -16,8 +16,11 @@ function send_fax(){
 
   });
 }
+( document ).ready(function() {
 
-$('#send_button').click(function(){
-  console.log("CLICKED");
-  send_fax();
+  $('#send_button').click(function(){
+    console.log("CLICKED");
+    send_fax();
+  });
+
 });
