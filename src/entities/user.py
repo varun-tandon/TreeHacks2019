@@ -6,12 +6,8 @@ class User(Entity, Base):
 
     email = Column(String)
     password = Column(String)
-    verified = Column(Boolean)
-    zipcode = Column(Integer)
 
-    def __init__(self, email, password, zipcode):
+    def __init__(self, email, password):
         Entity.__init__(self)
         self.email = email
         self.password = password
-        self.verified = False
-        self.zipcode = zipcode

@@ -75,9 +75,9 @@
               <ion-col>
                 <ion-item>
                   <ion-label position="floating">
-                    <div id="first_name" class="entry">First Name</div>
+                    <div class="entry">First Name</div>
                   </ion-label>
-                  <ion-input></ion-input>
+                  <ion-input id="first_name" ></ion-input>
                 </ion-item>
               </ion-col>
             </ion-row>
@@ -85,9 +85,9 @@
               <ion-col>
                 <ion-item>
                   <ion-label position="floating">
-                    <div id="last_name" class="entry">Last Name</div>
+                    <div  class="entry">Last Name</div>
                   </ion-label>
-                  <ion-input></ion-input>
+                  <ion-input id="last_name"></ion-input>
                 </ion-item>
               </ion-col>
             </ion-row>
@@ -95,9 +95,9 @@
               <ion-col>
                 <ion-item>
                   <ion-label position="floating">
-                    <div id="email" class="entry">Email</div>
+                    <div  class="entry">Email</div>
                   </ion-label>
-                  <ion-input></ion-input>
+                  <ion-input id="email"></ion-input>
                 </ion-item>
               </ion-col>
             </ion-row>
@@ -105,9 +105,9 @@
               <ion-col>
                 <ion-item>
                   <ion-label position="floating">
-                    <div id="password" class="entry" >Password</div>
+                    <div class="entry" >Password</div>
                   </ion-label>
-                  <ion-input type="password"></ion-input>
+                  <ion-input type="password" id="password" ></ion-input>
                 </ion-item>
               </ion-col>
             </ion-row>
@@ -124,6 +124,77 @@
           </ion-grid>
         </ion-slide>
         <ion-slide>
+            <ion-grid>
+              <ion-row>
+                <ion-col>
+                  <div class="regular">
+                    Other Information
+                  </div>
+                </ion-col>
+              </ion-row>
+              <ion-row>
+                <ion-col>
+                  <div class="subtitle">
+                    We need your Zip Code to identify your representatives
+                  </div>
+                </ion-col>
+              </ion-row>
+              <ion-row>
+                <ion-col>
+                  <ion-item>
+                    <ion-label position="floating">
+                      <div class="entry">Zip Code</div>
+                    </ion-label>
+                    <ion-input id="zipcode"></ion-input>
+                  </ion-item>
+                </ion-col>
+              </ion-row>
+              <ion-row>
+                <ion-col>
+                  <ion-item>
+                    <ion-label>
+                      <div class="entry">Gender</div>
+                    </ion-label>
+                    <ion-select id="gender_choice" interface="action-sheet" placeholder="Select One">
+                      <ion-select-option value="male">
+                        <div clas="entry">Male</div>
+                      </ion-select-option>
+                      <ion-select-option value="female">
+                        <div class="entry">Female</div>
+                      </ion-select-option>
+                      <ion-select-option value="prefer-not-gender">
+                        <div class="entry">Prefer not to answer</div>
+                      </ion-select-option>
+                    </ion-select>
+                  </ion-item>
+                </ion-col>
+              </ion-row>
+              <ion-row>
+                <ion-col>
+                  <ion-item>
+                    <ion-label>
+                      <div class="entry">Party affiliation</div>
+                    </ion-label>
+                    <ion-select id="party_choice" interface="action-sheet" placeholder="Select One">
+                      <ion-select-option value="republican">
+                        <div class="entry">Republican</div>
+                      </ion-select-option>
+                      <ion-select-option value="democrat">
+                        <div class="entry">Democrat</div>
+                      </ion-select-option>
+                      <ion-select-option value="independant">
+                        <div class="entry">Independant</div>
+                      </ion-select-option>
+                      <ion-select-option value="prefer-not-party">
+                        <div class="entry">Prefer not to answer</div>
+                      </ion-select-option>
+                    </ion-select>
+                  </ion-item>
+                </ion-col>
+              </ion-row>
+            </ion-grid>
+          </ion-slide>
+          <ion-slide>
           <ion-grid>
             <ion-row>
               <ion-col>
@@ -151,124 +222,13 @@
             </ion-row>
             <ion-row>
               <ion-col>
-                <ion-button shape="round" >
-                  <div class="button" id="submit_button">Submit</div>
+                <ion-button shape="round" id="submit_phone_number">
+                  <div class="button" >Submit</div>
                 </ion-button>
               </ion-col>
             </ion-row>
           </ion-grid>
           <ion-alert-controller class="hydrated"></ion-alert-controller>
-        </ion-slide>
-        <ion-slide class=".hidden_pre_verify .hidden_pre_text" hidden>
-          <ion-grid>
-            <ion-row>
-              <ion-col>
-                <div class="regular">
-                  Verify your account
-                </div>
-              </ion-col>
-            </ion-row>
-            <ion-row>
-
-            </ion-row>
-            <ion-row>
-            </ion-row>
-            <ion-row>
-              <ion-col>
-                <div class="subtitle">
-                  Enter the code texted to you here:
-                </div>
-              </ion-col>
-            </ion-row>
-            <ion-row>
-              <ion-col>
-                <ion-item>
-                  <ion-label position="floating">
-                    <div id="verification_code" class="entry">Verification Code</div>
-                  </ion-label>
-                  <ion-input></ion-input>
-                </ion-item>
-              </ion-col>
-            </ion-row>
-            <ion-row>
-              <ion-col>
-                <ion-button shape="round" id="submit_button">
-                  <div class="button">Submit</div>
-                </ion-button>
-              </ion-col>
-            </ion-row>
-          </ion-grid>
-        </ion-slide>
-        <ion-slide class=".hidden_pre_verify" hidden>
-          <ion-grid>
-            <ion-row>
-              <ion-col>
-                <div class="regular">
-                  Other Information
-                </div>
-              </ion-col>
-            </ion-row>
-            <ion-row>
-              <ion-col>
-                <div class="subtitle">
-                  We need your Zip Code to identify your representatives
-                </div>
-              </ion-col>
-            </ion-row>
-            <ion-row>
-              <ion-col>
-                <ion-item>
-                  <ion-label position="floating">
-                    <div id="zip_code" class="entry">Zip Code</div>
-                  </ion-label>
-                  <ion-input></ion-input>
-                </ion-item>
-              </ion-col>
-            </ion-row>
-            <ion-row>
-              <ion-col>
-                <ion-item>
-                  <ion-label>
-                    <div class="entry">Gender</div>
-                  </ion-label>
-                  <ion-select id="gender_choice" interface="action-sheet" placeholder="Select One">
-                    <ion-select-option value="male">
-                      <div clas="entry">Male</div>
-                    </ion-select-option>
-                    <ion-select-option value="female">
-                      <div class="entry">Female</div>
-                    </ion-select-option>
-                    <ion-select-option value="prefer-not-gender">
-                      <div class="entry">Prefer not to answer</div>
-                    </ion-select-option>
-                  </ion-select>
-                </ion-item>
-              </ion-col>
-            </ion-row>
-            <ion-row>
-              <ion-col>
-                <ion-item>
-                  <ion-label>
-                    <div class="entry">Party affiliation</div>
-                  </ion-label>
-                  <ion-select id="party_choice" interface="action-sheet" placeholder="Select One">
-                    <ion-select-option value="republican">
-                      <div class="entry">Republican</div>
-                    </ion-select-option>
-                    <ion-select-option value="democrat">
-                      <div class="entry">Democrat</div>
-                    </ion-select-option>
-                    <ion-select-option value="independant">
-                      <div class="entry">Independant</div>
-                    </ion-select-option>
-                    <ion-select-option value="prefer-not-party">
-                      <div class="entry">Prefer not to answer</div>
-                    </ion-select-option>
-                  </ion-select>
-                </ion-item>
-              </ion-col>
-            </ion-row>
-          </ion-grid>
         </ion-slide>
         <ion-slide class=".hidden_pre_verify" hidden>
           <ion-grid>
