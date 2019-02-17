@@ -27,6 +27,23 @@ function login(email, password){
   }
 
   $.ajax(settings).done(function (response) {
-    console.log(response);
+    if(JSON.parse(response).status == 200){
+      sessionStorage.setItem("pass_key", JSON.parse(response).pass_key);
+      window.location.href = "/homepage", true;
+    }else{
+      presentAlert();
+    }
   });
+}
+
+async function presentAlert() {
+  const alertController = document.querySelector('ion-alert-controller');
+  await alertController.componentOnReady();
+
+  const alert = await alertController.create({
+    header: 'Invalid Credentials',
+    message: 'Please try logging in again.',
+    buttons: ['OK']
+  });
+  return await alert.present();
 }
