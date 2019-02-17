@@ -113,3 +113,26 @@ function send_verification_code_submission(){
     }
   });
 }
+
+function send_text_verification(){
+  var phone_number = $("#phone_number").val();
+  var settings = {
+    "async": true,
+    "crossDomain": true,
+    "url": "http://localhost:5000/send_sms_to_user",
+    "method": "POST",
+    "headers": {
+      "Content-Type": "application/json",
+    },
+    "processData": false,
+    "data": "{\n\t\"phone_number\": \"" + phone_number + "\"\n}"
+  }
+  $.ajax(settings).done(function (response) {
+    console.log(response);
+    if(JSON.parse(response).status == 200){
+      $(".hidden_pre_text").removeAttr("hidden");
+    }else{
+      presentInvalidPhoneAlert();
+    }
+  });
+}
