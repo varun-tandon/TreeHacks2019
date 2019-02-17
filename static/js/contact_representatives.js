@@ -16,7 +16,8 @@ function send_fax(){
 
   });
 }
-( document ).ready(function() {
+
+$( document ).ready(function() {
 
   $('#send_button').click(function(){
     console.log("CLICKED");
