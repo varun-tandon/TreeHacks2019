@@ -32,4 +32,8 @@ $( document ).ready(function() {
     $("#send_button").text("Fax Sent!");
   });
 
+  $('#call_graph').click(function(){
+    twitter_scrape_data_graph();
+  });
+
 });
