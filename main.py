@@ -18,6 +18,14 @@ app = Flask(__name__)
 def homepage():
     return render_template('index.html')
 
+@app.route('/login')
+def login():
+    return render_template('login.html')
+
+@app.route('/onboarding')
+def onboard():
+    return render_template('intro_slides.html')
+
 @app.route('/create_user', methods=['POST'])
 def create_user():
     request_json = request.get_json()
@@ -35,7 +43,7 @@ def login_user():
     hashed_password = hashlib.sha512(request_json['password'].encode('utf-8')).hexdigest()
     if(session.query(User).filter(and_(User.email == request_json['email'], User.password == hashed_password)).count() == 1):
         return "SUCCESS"
-    return "0 or more users"
+    return "0 or more than 1 users"
 
 # NATIONAL_EXEC : Refers to the President, VP, etc
 # NATIONAL_UPPER : Refers to U.S. Senate members
