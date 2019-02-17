@@ -101,7 +101,7 @@ def get_us_congress_access():
 
     return str(response.json())
 
-@app.route('/fax', methods=['GET'])
+@app.route('/fax', methods=['POST'])
 def fax_reps():
     account_sid = '***REMOVED***'
     auth_token = '***REMOVED***'
