@@ -5,6 +5,7 @@ import random
 import hashlib, uuid
 import requests
 import sendgrid
+from twilio.rest import Client
 from .src.entities.entity import Session, engine, Base
 from .src.entities.user import User
 from sqlalchemy import and_
@@ -19,6 +20,18 @@ app = Flask(__name__)
 @app.route('/')
 def homepage():
     return render_template('index.html')
+
+@app.route('/login')
+def login():
+    return render_template('login.html')
+
+@app.route('/onboarding')
+def onboard():
+    return render_template('intro_slides.html')
+
+@app.route('/homepage')
+def bill_card_page():
+    return render_template('homepage.html')
 
 @app.route('/create_user', methods=['POST'])
 def create_user():
@@ -35,9 +48,14 @@ def create_user():
 def login_user():
     request_json = request.get_json()
     hashed_password = hashlib.sha512(request_json['password'].encode('utf-8')).hexdigest()
+    response = dict()
     if(session.query(User).filter(and_(User.email == request_json['email'], User.password == hashed_password)).count() == 1):
-        return "SUCCESS"
-    return "0 or more users"
+        response['status'] = 200
+        response['pass_key'] = hashed_password
+        return json.dumps(response)
+    else:
+        response['status'] = 400
+        return json.dumps(response)
 
 # NATIONAL_EXEC : Refers to the President, VP, etc
 # NATIONAL_UPPER : Refers to U.S. Senate members
@@ -61,7 +79,7 @@ def get_us_senators_access():
 
     response = requests.request("GET", url, headers=headers, params=querystring)
 
-    return response.text
+    return str(response.json())
 
 @app.route('/access_us_congress_info', methods=['GET'])
 def get_us_congress_access():
@@ -77,7 +95,23 @@ def get_us_congress_access():
 
     response = requests.request("GET", url, headers=headers, params=querystring)
 
-    return response.text
+    return str(response.json())
+
+@app.route('/fax', methods=['GET'])
+def fax_reps():
+    account_sid = '***REMOVED***'
+    auth_token = '***REMOVED***'
+    client = Client(account_sid, auth_token)
+    content = request.get_json()
+    fax_number = content['fax_1']
+    fax = client.fax.faxes \
+        .create(
+             from_='+15618011480',
+             to= fax_number,
+             media_url='https://www.twilio.com/docs/documents/25/justthefaxmaam.pdf'
+         )
+
+    return fax_number
 
 @app.route('/access_governor_info', methods=['GET'])
 def get_governor_access():
@@ -93,7 +127,7 @@ def get_governor_access():
 
     response = requests.request("GET", url, headers=headers, params=querystring)
 
-    return response.text
+    return str(response.json())
 
 @app.route('/send_sms_to_user', methods=['GET'])
 def send_sms_to_user():
@@ -109,7 +143,7 @@ def send_sms_to_user():
 
     response = requests.request("POST", url, data=payload, headers=headers)
 
-    return response.text
+    return str(response.json())
 
 @app.route('/verify_user', methods=['GET'])
 def get_Verification():
@@ -129,7 +163,7 @@ def get_Verification():
 
     response = requests.request("GET", url, data=payload, headers=headers, params=querystring)
 
-    return response.text
+    return str(response.json())
 
 @app.route('/azure_text_sentiment', methods=['POST'])
 def azure_text_sentiment():
