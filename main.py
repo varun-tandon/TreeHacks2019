@@ -85,7 +85,15 @@ def get_us_congress_access():
 
     response = requests.request("GET", url, headers=headers, params=querystring)
 
-    return response.text
+    return str(response.json())
+
+# def get_us_congress_email():
+#     info = get_us_congress_access()
+#     email = info["officials"][]
+
+
+
+
 
 @app.route('/access_governor_info', methods=['GET'])
 def get_governor_access():
