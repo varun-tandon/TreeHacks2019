@@ -6,8 +6,8 @@ import hashlib, uuid
 import requests
 import sendgrid
 from twilio.rest import Client
-from .src.entities.entity import Session, engine, Base
-from .src.entities.user import User
+from src.entities.entity import Session, engine, Base
+from src.entities.user import User
 from sqlalchemy import and_
 from sendgrid.helpers.mail import *
 
