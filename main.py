@@ -85,7 +85,7 @@ def get_us_senators_access():
 
     return str(response.json())
 
-@app.route('/access_us_congress_info', methods=['GET'])
+@app.route('/access_us_congress_info', methods=['POST'])
 def get_us_congress_access():
     url = "https://q4ktfaysw3.execute-api.us-east-1.amazonaws.com/treehacks/legislators"
     content = request.get_json()
@@ -101,7 +101,7 @@ def get_us_congress_access():
 
     return str(response.json())
 
-@app.route('/fax', methods=['GET'])
+@app.route('/fax', methods=['POST'])
 def fax_reps():
     account_sid = 'AC03acac4bff7bd871e3b64549e63232e0'
     auth_token = 'f7ec33e94f42b6168ce17f0266f5c44a'
