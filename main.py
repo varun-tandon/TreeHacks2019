@@ -33,12 +33,16 @@ def onboard():
 def bill_card_page():
     return render_template('homepage.html')
 
+@app.route('/verify_code_page')
+def verify_code_page():
+    return render_template('verify_code_page.html')
+
 @app.route('/create_user', methods=['POST'])
 def create_user():
     request_json = request.get_json()
     hashed_password = hashlib.sha512(request_json['password'].encode('utf-8')).hexdigest()
     if(session.query(User).filter(User.email == request_json['email']).count() == 0):
-        new_user = User(request_json['email'], hashed_password)
+        new_user = User(request_json['email'], hashed_password, request_json['zipcode'])
         session.add(new_user)
         session.commit()
         return "completed"
@@ -216,3 +220,8 @@ def send_email_to_rep():
     print(response.headers)
 
     return name
+
+@app.route('/get_zip_code', methods=['GET'])
+def get_user_zipcode():
+    user = session.query(User).filter(session.query(User).filter(and_(User.email == request_json['email'], User.password == request_json['access_token']))).one()
+    return user.zipcode
