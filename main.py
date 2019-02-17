@@ -29,6 +29,10 @@ def login():
 def onboard():
     return render_template('intro_slides.html')
 
+@app.route('/homepage')
+def bill_card_page():
+    return render_template('homepage.html')
+
 @app.route('/create_user', methods=['POST'])
 def create_user():
     request_json = request.get_json()
@@ -44,9 +48,14 @@ def create_user():
 def login_user():
     request_json = request.get_json()
     hashed_password = hashlib.sha512(request_json['password'].encode('utf-8')).hexdigest()
+    response = dict()
     if(session.query(User).filter(and_(User.email == request_json['email'], User.password == hashed_password)).count() == 1):
-        return "SUCCESS"
-    return "0 or more than 1 users"
+        response['status'] = 200
+        response['pass_key'] = hashed_password
+        return json.dumps(response)
+    else:
+        response['status'] = 400
+        return json.dumps(response)
 
 # NATIONAL_EXEC : Refers to the President, VP, etc
 # NATIONAL_UPPER : Refers to U.S. Senate members
