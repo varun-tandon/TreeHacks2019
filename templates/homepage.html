@@ -8,8 +8,9 @@
 <body>
   <ion-app>
       <ion-tabs>
-        <ion-content>
+<ion-content>
         <ion-tab tab="tab-home" component="page-home">
+
           <ion-list>
             <ion-item>
               <ion-card>
@@ -262,16 +263,202 @@
     </ion-card>
   </ion-item>
 </ion-list>
-</ion-content>
+<!-- </ion-content> -->
 </ion-tab>
+
   <ion-tab tab="tab-contact" component="page-contact">
+    <!-- <ion-content> -->
+      <ion-card>
+        <ion-grid>
+          <ion-row justify-content-center>
+            <ion-col>
+            </ion-col>
+            <ion-col size="auto" >
+              <div class="title">Tell your representatives how you feel!</div>
+            </ion-col>
+            <ion-col>
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col>
+            </ion-col>
+          <ion-row justify-content-end>
+            <ion-col>
+            </ion-col>
+            <ion-col size="auto">
+              <div class="regular" "congressman_heading">Senator:</div>
+            </ion-col>
+            <ion-col size="auto">
+              <div id="senator_two" class="regular">Kamala Harris</div>
+            </ion-col>
+            <ion-col>
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col>
+            </ion-col>
+            <ion-col>
+              <img src="https://i.imgur.com/kxsn0jl.jpg">
+            </ion-col>
+            <ion-col>
+            </ion-col>
+          </ion-row>
+          <ion-row justify-content-center>
+            <ion-col size="auto">
+                <ion-button color="success" shape="round" fill="outline">
+                  <ion-icon name="thumbs-up"></ion-icon>
+                </ion-button>
+              </ion-col>
+              <ion-col size="auto">
+                <ion-button color="dark" shape="round" fill="outline" id="call_graph">
+                  <ion-icon name="podium"></ion-icon>
+                </ion-button>
+              </ion-col>
+          <ion-col size="auto">
+            <ion-button color="danger" shape="round" fill="outline">
+              <ion-icon name="thumbs-down"></ion-icon>
+            </ion-button>
+          </ion-col>
+        </ion-row>
+          <ion-row justify-content-center>
+            <ion-col size="auto">
+              <ion-item class="textbox">
+                <ion-textarea placeholder="Type feedback for your representative..."></ion-textarea>
+              </ion-item>
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col>
+            </ion-col>
+            <ion-col size="auto">
+              <ion-button shape="round" id="send_button">
+                <div class="button" >Send</div>
+              </ion-button>
+            </ion-col>
+            <ion-col>
+            </ion-col>
+          </ion-row>
+            <ion-col size="auto" >
+              <div class="regular" "congressman_heading">District Representative:</div>
+            </ion-col>
+            <ion-col size="auto" >
+              <div id="district_rep" class="regular">Anna G. Eshoo</div>
+            </ion-col>
+            <ion-col>
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col>
+            </ion-col>
+            <ion-col>
+              <img src="https://www.commoncause.org/wp-content/uploads/bioguideimages/E000215.jpg">
+            </ion-col>
+            <ion-col>
+            </ion-col>
+          </ion-row>
+          <ion-row justify-content-center>
+            <ion-col size="auto">
+                <ion-button color="success" shape="round" fill="outline">
+                  <ion-icon name="thumbs-up"></ion-icon>
+                </ion-button>
+              </ion-col>
+              <ion-col size="auto">
+                <ion-button color="dark" shape="round" fill="outline" id="graph">
+                  <ion-icon name="podium"></ion-icon>
+                </ion-button>
+              </ion-col>
+          <ion-col size="auto">
+            <ion-button color="danger" shape="round" fill="outline">
+              <ion-icon name="thumbs-down"></ion-icon>
+            </ion-button>
+          </ion-col>
+          </ion-row>
+          <ion-row justify-content-center>
+            <ion-col size="auto">
+              <ion-item class="textbox">
+                <ion-textarea placeholder="Type feedback for your representative..." id="rep_message"></ion-textarea>
+              </ion-item>
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col>
+            </ion-col>
+            <ion-col size="auto">
+              <ion-button shape="round" id="send_button_rep">
+                <div class="button" >Send</div>
+              </ion-button>
+            </ion-col>
+            <ion-col>
+            </ion-col>
+          </ion-row>
+          <ion-row justify-content-end>
+            <ion-col>
+            </ion-col>
+            <ion-col size="auto">
+              <div class="regular" "congressman_heading">Senator:</div>
+            </ion-col>
+            <ion-col size="auto">
+              <div id="senator_one" class="regular">Diane Feinstein</div>
+            </ion-col>
+            <ion-col>
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col>
+            </ion-col>
+            <ion-col>
+              <img src="https://www.commoncause.org/wp-content/uploads/bioguideimages/F000062.jpg">
+            </ion-col>
+            <ion-col>
+            </ion-col>
+          </ion-row>
+          <ion-row justify-content-center>
+            <ion-col size="auto">
+                <ion-button color="success" shape="round" fill="outline">
+                  <ion-icon name="thumbs-up"></ion-icon>
+                </ion-button>
+              </ion-col>
+              <ion-col size="auto">
+                <ion-button color="dark" shape="round" fill="outline" id="graph">
+                  <ion-icon name="podium"></ion-icon>
+                </ion-button>
+              </ion-col>
+          <ion-col size="auto">
+            <ion-button color="danger" shape="round" fill="outline">
+              <ion-icon name="thumbs-down"></ion-icon>
+            </ion-button>
+          </ion-col>
+          </ion-row>
+          <ion-row justify-content-center>
+            <ion-col size="auto">
+              <ion-item class="textbox">
+                <ion-textarea placeholder="Type feedback for your representative..."></ion-textarea>
+              </ion-item>
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col>
+            </ion-col>
+            <ion-col size="auto">
+              <ion-button shape="round" id="send_button_sen_two">
+                <div class="button">Send</div>
+              </ion-button>
+            </ion-col>
+            <ion-col>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+      </ion-card>
+    <!-- </ion-content> -->
   </ion-tab>
-  <ion-tab tab="tab-graph" component="page-graph">
-  </ion-tab>
-  <ion-tab tab="tab-home" component="page-home">
-  </ion-tab>
+
+  <!-- <ion-tab tab="tab-graph" component="page-graph">
+  </ion-tab> -->
+  <!-- <ion-tab tab="tab-home" component="page-home">
+  </ion-tab> -->
+
   <ion-tab tab="tab-profile" >
-    <ion-content>
+    <!-- <ion-content> -->
       <ion-card>
         <ion-card-content>
         <ion-grid>
@@ -284,119 +471,120 @@
             <ion-col>
             </ion-col>
           </ion-row>
-          <ion-row>
+          <!-- <ion-row>
             <ion-col>
             </ion-col>
             <ion-col size="2">
               <div class="regular">Email:</div>
             </ion-col>
             <ion-col>
-              <div id="username" class="regular"></div>
+              <div id="username" class="regular">ryanj9@stanford.edu</div>
             </ion-col>
             <ion-col size="1">
             </ion-col>
-          </ion-row>
-          <ion-row>
-            <ion-col>
-            </ion-col>
-            <ion-col size="2">
+          </ion-row> -->
+          <ion-row justify-content-center>
+            <!-- <ion-col>
+            </ion-col> -->
+            <ion-col size="auto">
               <div class="subtitle">Name:</div>
             </ion-col>
             <ion-col>
-              <div id="name" class="subtitle"></div>
+              <div id="name" class="subtitle">Ryan Johnston</div>
             </ion-col>
-            <ion-col size="1">
-            </ion-col>
+            <!-- <ion-col size="1">
+            </ion-col> -->
           </ion-row>
-          <ion-row>
-            <ion-col>
-            </ion-col>
-            <ion-col size="2">
+          <ion-row justify-content-center>
+            <!-- <ion-col>
+            </ion-col> -->
+            <ion-col size="auto">
               <div class="subtitle">Party:</div>
             </ion-col>
             <ion-col>
               <div id="party" class="subtitle">Democrat</div>
             </ion-col>
-            <ion-col size="1">
-            </ion-col>
+            <!-- <ion-col size="1">
+            </ion-col> -->
           </ion-row>
-          <ion-row>
-            <ion-col>
-            </ion-col>
-            <ion-col size="2">
+          <ion-row justify-content-center>
+            <!-- <ion-col>
+            </ion-col> -->
+            <ion-col size="auto">
               <div class="subtitle">Gender:</div>
             </ion-col>
             <ion-col>
               <div id="gender" class="subtitle">Male</div>
             </ion-col>
-            <ion-col size="1">
-            </ion-col>
+            <!-- <ion-col size="1">
+            </ion-col> -->
           </ion-row>
-          <ion-row>
-            <ion-col>
-            </ion-col>
-            <ion-col size="2">
+          <ion-row justify-content-center>
+            <!-- <ion-col>
+            </ion-col> -->
+            <ion-col size="auto">
               <div class="subtitle">Email:</div>
             </ion-col>
             <ion-col>
-              <div id="email" class="subtitle"></div>
+              <div id="email" class="subtitle">ryanj9@stanford.edu</div>
             </ion-col>
-            <ion-col size="1">
-            </ion-col>
+            <!-- <ion-col size="1">
+            </ion-col> -->
           </ion-row>
           <ion-row>
-            <ion-col>
-            </ion-col>
-            <ion-col size="2">
+            <!-- <ion-col>
+            </ion-col> -->
+            <ion-col size="auto">
               <div class="subtitle">State, Congressional District:</div>
+            </ion-col >
+            <ion-col size="auto">
+              <div id="state_and_district" class="subtitle">California's 18th</div>
             </ion-col>
-            <ion-col>
-              <div id="state_and_district" class="subtitle"></div>
-            </ion-col>
-            <ion-col size="1">
-            </ion-col>
+            <!-- <ion-col size="1">
+            </ion-col> -->
           </ion-row>
           <ion-row>
-            <ion-col>
-            </ion-col>
-            <ion-col size="2">
+            <!-- <ion-col>
+            </ion-col> -->
+            <ion-col size="auto">
               <div class="subtitle">District Representative:</div>
             </ion-col>
-            <ion-col>
-              <div id="district_representative" class="subtitle"></div>
+            <ion-col size="auto">
+              <div id="district_representative" class="subtitle">Anna Eschoo</div>
             </ion-col>
-            <ion-col size="1">
-            </ion-col>
+            <!-- <ion-col size="1">
+            </ion-col> -->
           </ion-row>
           <ion-row>
-            <ion-col>
-            </ion-col>
-            <ion-col size="2">
+            <!-- <ion-col>
+            </ion-col> -->
+            <ion-col size="auto">
               <div class="subtitle">Senator:</div>
             </ion-col>
-            <ion-col>
-              <div id="senator_one" class="subtitle"></div>
+            <ion-col size="auto">
+              <div id="senator_one" class="subtitle">Diane Feinstein</div>
             </ion-col>
-            <ion-col size="1">
-            </ion-col>
+            <!-- <ion-col size="1">
+            </ion-col> -->
           </ion-row>
           <ion-row>
-            <ion-col>
-            </ion-col>
-            <ion-col size="2">
+            <!-- <ion-col>
+            </ion-col> -->
+            <ion-col size="auto">
               <div class="subtitle">Senator:</div>
             </ion-col>
-            <ion-col>
-              <div id="senator_two" class="subtitle"></div>
+            <ion-col size="auto">
+              <div id="senator_two" class="subtitle">Kamala Harris</div>
             </ion-col>
-            <ion-col size="1">
-            </ion-col>
+            <!-- <ion-col size="1">
+            </ion-col> -->
           </ion-row>
         </ion-grid>
       </ion-card-content>
       </ion-card>
-    </ion-content>
+
   </ion-tab>
+  </ion-content>
 
 
   <ion-tab-bar slot="bottom">
@@ -408,10 +596,10 @@
       <ion-icon name="chatboxes"></ion-icon>
       <ion-label>Contact Your Reps</ion-label>
     </ion-tab-button>
-    <ion-tab-button tab="tab-graph">
+    <!-- <ion-tab-button tab="tab-graph">
       <ion-icon name="contacts"></ion-icon>
       <ion-label>Friends</ion-label>
-    </ion-tab-button>
+    </ion-tab-button> -->
     <ion-tab-button tab="tab-profile">
       <ion-icon name="contact"></ion-icon>
       <ion-label>Profile</ion-label>
