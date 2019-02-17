@@ -3,8 +3,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <script src="https://unpkg.com/@ionic/core@latest/dist/ionic.js"></script>
   <link rel="stylesheet" href="https://unpkg.com/@ionic/core@latest/css/ionic.bundle.css"/>
-<link rel="stylesheet" type="text/css" href="../static/css/styles.css"/>
+  <link rel="stylesheet" type="text/css" href="../static/css/styles.css"/>
   <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed" rel="stylesheet">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="../static/js/scripts.js"></script>
 </head>
 <body>
   <ion-app>
@@ -93,7 +95,7 @@
               <ion-col>
                 <ion-item>
                   <ion-label position="floating">
-                    <div id="email" class="entry">email</div>
+                    <div id="email" class="entry">Email</div>
                   </ion-label>
                   <ion-input></ion-input>
                 </ion-item>
@@ -103,9 +105,9 @@
               <ion-col>
                 <ion-item>
                   <ion-label position="floating">
-                    <div id="password" class="entry">password</div>
+                    <div id="password" class="entry" >Password</div>
                   </ion-label>
-                  <ion-input></ion-input>
+                  <ion-input type="password"></ion-input>
                 </ion-item>
               </ion-col>
             </ion-row>
@@ -113,9 +115,9 @@
               <ion-col>
                 <ion-item>
                   <ion-label position="floating">
-                    <div id="confirm_password" class="entry">confirm password</div>
+                    <div id="confirm_password" class="entry" >Confirm Password</div>
                   </ion-label>
-                  <ion-input></ion-input>
+                  <ion-input type="password"></ion-input>
                 </ion-item>
               </ion-col>
             </ion-row>
@@ -141,47 +143,36 @@
               <ion-col>
                 <ion-item>
                   <ion-label position="floating">
-                    <div id="phone_number" class="entry">Phone Number</div>
+                    <div class="entry">Phone Number</div>
                   </ion-label>
-                  <ion-input></ion-input>
+                  <ion-input id="phone_number"></ion-input>
                 </ion-item>
               </ion-col>
             </ion-row>
             <ion-row>
               <ion-col>
-                <ion-button shape="round" id="submit_button">
-                  <div class="button">Submit</div>
+                <ion-button shape="round" >
+                  <div class="button" id="submit_button">Submit</div>
                 </ion-button>
               </ion-col>
             </ion-row>
           </ion-grid>
+          <ion-alert-controller class="hydrated"></ion-alert-controller>
         </ion-slide>
-            <ion-slide>
-              <ion-grid>
-                <ion-row>
-                  <ion-col>
-                    <div class="regular">
-                      Verify your account
-                    </div>
-                  </ion-col>
-                </ion-row>
-                <ion-row>
-                  <ion-col>
-                    <div class="subtitle">
-                      Please enter your phone number to recieve a verification code
-                    </div>
-                  </ion-col>
-                </ion-row>
-                <ion-row>
-                  <ion-col>
-                    <ion-item>
-                      <ion-label position="floating">
-                        <div id="phone_number" class="button">Phone Number</div>
-                      </ion-label>
-                      <ion-input></ion-input>
-                    </ion-item>
-                  </ion-col>
-                </ion-row>
+        <ion-slide class=".hidden_pre_verify .hidden_pre_text" hidden>
+          <ion-grid>
+            <ion-row>
+              <ion-col>
+                <div class="regular">
+                  Verify your account
+                </div>
+              </ion-col>
+            </ion-row>
+            <ion-row>
+
+            </ion-row>
+            <ion-row>
+            </ion-row>
             <ion-row>
               <ion-col>
                 <div class="subtitle">
@@ -199,9 +190,16 @@
                 </ion-item>
               </ion-col>
             </ion-row>
+            <ion-row>
+              <ion-col>
+                <ion-button shape="round" id="submit_button">
+                  <div class="button">Submit</div>
+                </ion-button>
+              </ion-col>
+            </ion-row>
           </ion-grid>
         </ion-slide>
-        <ion-slide>
+        <ion-slide class=".hidden_pre_verify" hidden>
           <ion-grid>
             <ion-row>
               <ion-col>
@@ -272,23 +270,23 @@
             </ion-row>
           </ion-grid>
         </ion-slide>
-        <ion-slide>
+        <ion-slide class=".hidden_pre_verify" hidden>
           <ion-grid>
-          <ion-row>
-            <ion-col>
-            <div class="regular">
-              That's it!
-            </div>
-          </ion-col>
-        </ion-row>
-          <ion-row>
-            <ion-col>
-              <ion-button shape="round" id="enter_button">
-                <div class="button">Enter App</div>
-              </ion-button>
-            </ion-col>
-          </ion-row>
-        </ion-grid>
+            <ion-row>
+              <ion-col>
+                <div class="regular">
+                  That's it!
+                </div>
+              </ion-col>
+            </ion-row>
+            <ion-row>
+              <ion-col>
+                <ion-button shape="round" id="enter_button">
+                  <div class="button">Enter App</div>
+                </ion-button>
+              </ion-col>
+            </ion-row>
+          </ion-grid>
         </ion-slide>
       </ion-slides>
     </ion-content>
