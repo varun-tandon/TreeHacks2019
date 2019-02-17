@@ -2,7 +2,7 @@
 <head>
   <script src="https://unpkg.com/@ionic/core@latest/dist/ionic.js"></script>
   <link rel="stylesheet" href="https://unpkg.com/@ionic/core@latest/css/ionic.bundle.css"/>
-<link rel="stylesheet" type="text/css" href="static/css/styles.css"/>
+<link rel="stylesheet" type="text/css" href="../static/css/styles.css"/>
   <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed" rel="stylesheet">
 </head>
 <body>
@@ -13,7 +13,7 @@
           <ion-grid>
             <ion-row>
               <ion-col>
-                <div id="Welcome">
+                <div class="Welcome">
                   Welcome to
                 </div>
               </ion-col>
@@ -25,7 +25,7 @@
             </ion-row>
             <ion-row>
               <ion-col>
-                <div id="subtitle">
+                <div class="subtitle">
                   Swipe to continue
                 </div>
               </ion-col>
@@ -36,14 +36,14 @@
           <ion-grid>
             <ion-row>
               <ion-col>
-                <div id="regular">
+                <div class="regular">
                   What does InSession do?
                 </div>
               </ion-col>
             </ion-row>
             <ion-row>
               <ion-col>
-                <div id="regular">
+                <div class="regular">
                   We give you the tools to directly engage with your government.
                   We help you stay up to date with bills currently in congress
                   and give you easy ways to influence your elected representatives.
@@ -52,7 +52,7 @@
             </ion-row>
             <ion-row>
               <ion-col>
-                <div id="subtitle">
+                <div class="subtitle">
                   Let's get started!
                 </div>
               </ion-col>
@@ -63,7 +63,7 @@
           <ion-grid>
             <ion-row>
               <ion-col>
-                <div id="regular">
+                <div class="regular">
                   Set up your account
                 </div>
               </ion-col>
@@ -72,7 +72,7 @@
               <ion-col>
                 <ion-item>
                   <ion-label position="floating">
-                    <div id="entry">First Name</div>
+                    <div id="first_name" class="entry">First Name</div>
                   </ion-label>
                   <ion-input></ion-input>
                 </ion-item>
@@ -82,7 +82,7 @@
               <ion-col>
                 <ion-item>
                   <ion-label position="floating">
-                    <div id="entry">Last Name</div>
+                    <div id="last_name" class="entry">Last Name</div>
                   </ion-label>
                   <ion-input></ion-input>
                 </ion-item>
@@ -92,7 +92,7 @@
               <ion-col>
                 <ion-item>
                   <ion-label position="floating">
-                    <div id="entry">email</div>
+                    <div id="email" class="entry">email</div>
                   </ion-label>
                   <ion-input></ion-input>
                 </ion-item>
@@ -102,7 +102,7 @@
               <ion-col>
                 <ion-item>
                   <ion-label position="floating">
-                    <div id="entry">password</div>
+                    <div id="password" class="entry">password</div>
                   </ion-label>
                   <ion-input></ion-input>
                 </ion-item>
@@ -112,7 +112,7 @@
               <ion-col>
                 <ion-item>
                   <ion-label position="floating">
-                    <div id="entry">confirm password</div>
+                    <div id="confirm_password" class="entry">confirm password</div>
                   </ion-label>
                   <ion-input></ion-input>
                 </ion-item>
@@ -124,14 +124,14 @@
           <ion-grid>
             <ion-row>
               <ion-col>
-                <div id="regular">
+                <div class="regular">
                   Verify your account
                 </div>
               </ion-col>
             </ion-row>
             <ion-row>
               <ion-col>
-                <div id="subtitle">
+                <div class="subtitle">
                   Please enter your phone number to recieve a verification code
                 </div>
               </ion-col>
@@ -140,7 +140,7 @@
               <ion-col>
                 <ion-item>
                   <ion-label position="floating">
-                    <div id="empty">Phone Number</div>
+                    <div id="phone_number" class="entry">Phone Number</div>
                   </ion-label>
                   <ion-input></ion-input>
                 </ion-item>
@@ -148,7 +148,42 @@
             </ion-row>
             <ion-row>
               <ion-col>
-                <div id="subtitle">
+                <ion-button shape="round" id="submit_button">
+                  <div class="button">Submit</div>
+                </ion-button>
+              </ion-col>
+            </ion-row>
+          </ion-grid>
+        </ion-slide>
+            <ion-slide>
+              <ion-grid>
+                <ion-row>
+                  <ion-col>
+                    <div class="regular">
+                      Verify your account
+                    </div>
+                  </ion-col>
+                </ion-row>
+                <ion-row>
+                  <ion-col>
+                    <div class="subtitle">
+                      Please enter your phone number to recieve a verification code
+                    </div>
+                  </ion-col>
+                </ion-row>
+                <ion-row>
+                  <ion-col>
+                    <ion-item>
+                      <ion-label position="floating">
+                        <div id="phone_number" class="button">Phone Number</div>
+                      </ion-label>
+                      <ion-input></ion-input>
+                    </ion-item>
+                  </ion-col>
+                </ion-row>
+            <ion-row>
+              <ion-col>
+                <div class="subtitle">
                   Enter the code texted to you here:
                 </div>
               </ion-col>
@@ -157,7 +192,7 @@
               <ion-col>
                 <ion-item>
                   <ion-label position="floating">
-                    <div id="empty">Verification Code</div>
+                    <div id="verification_code" class="entry">Verification Code</div>
                   </ion-label>
                   <ion-input></ion-input>
                 </ion-item>
@@ -169,14 +204,14 @@
           <ion-grid>
             <ion-row>
               <ion-col>
-                <div id="regular">
+                <div class="regular">
                   Other Information
                 </div>
               </ion-col>
             </ion-row>
             <ion-row>
               <ion-col>
-                <div id="subtitle">
+                <div class="subtitle">
                   We need your Zip Code to identify your representatives
                 </div>
               </ion-col>
@@ -185,7 +220,7 @@
               <ion-col>
                 <ion-item>
                   <ion-label position="floating">
-                    <div id="entry">Zip Code</div>
+                    <div id="zip_code" class="entry">Zip Code</div>
                   </ion-label>
                   <ion-input></ion-input>
                 </ion-item>
@@ -195,17 +230,17 @@
               <ion-col>
                 <ion-item>
                   <ion-label>
-                    <div id="entry">Gender</div>
+                    <div class="entry">Gender</div>
                   </ion-label>
-                  <ion-select id="customActionSheetSelect" interface="action-sheet" placeholder="Select One">
+                  <ion-select id="gender_choice" interface="action-sheet" placeholder="Select One">
                     <ion-select-option value="male">
-                      <div id="entry">Male</div>
+                      <div clas="entry">Male</div>
                     </ion-select-option>
                     <ion-select-option value="female">
-                      <div id="entry">Female</div>
+                      <div class="entry">Female</div>
                     </ion-select-option>
                     <ion-select-option value="prefer-not-gender">
-                      <div id="entry">Prefer not to answer</div>
+                      <div class="entry">Prefer not to answer</div>
                     </ion-select-option>
                   </ion-select>
                 </ion-item>
@@ -215,20 +250,20 @@
               <ion-col>
                 <ion-item>
                   <ion-label>
-                    <div id="entry">Party affiliation</div>
+                    <div class="entry">Party affiliation</div>
                   </ion-label>
-                  <ion-select id="customActionSheetSelect" interface="action-sheet" placeholder="Select One">
+                  <ion-select id="party_choice" interface="action-sheet" placeholder="Select One">
                     <ion-select-option value="republican">
-                      <div id="entry">Republican</div>
+                      <div class="entry">Republican</div>
                     </ion-select-option>
                     <ion-select-option value="democrat">
-                      <div id="entry">Democrat</div>
+                      <div class="entry">Democrat</div>
                     </ion-select-option>
                     <ion-select-option value="independant">
-                      <div id="entry">Independant</div>
+                      <div class="entry">Independant</div>
                     </ion-select-option>
                     <ion-select-option value="prefer-not-party">
-                      <div id="entry">Prefer not to answer</div>
+                      <div class="entry">Prefer not to answer</div>
                     </ion-select-option>
                   </ion-select>
                 </ion-item>
@@ -237,11 +272,22 @@
           </ion-grid>
         </ion-slide>
         <ion-slide>
-          <h1>
-            <div id="regular">
+          <ion-grid>
+          <ion-row>
+            <ion-col>
+            <div class="regular">
               That's it!
             </div>
-          </h1>
+          </ion-col>
+        </ion-row>
+          <ion-row>
+            <ion-col>
+              <ion-button shape="round" id="enter_button">
+                <div class="button">Enter App</div>
+              </ion-button>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
         </ion-slide>
       </ion-slides>
     </ion-card>
