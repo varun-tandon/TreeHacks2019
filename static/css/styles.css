@@ -53,6 +53,10 @@
     font-family: 'Roboto Condensed', sans-serif;
   }
 
+  #tabs{
+    padding-top: -100px;
+  }
+
 
   #loginPasswordInput{
     height: 10vh;
