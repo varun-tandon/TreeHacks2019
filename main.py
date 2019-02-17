@@ -5,6 +5,7 @@ import random
 import hashlib, uuid
 import requests
 import sendgrid
+from twilio.rest import Client
 from .src.entities.entity import Session, engine, Base
 from .src.entities.user import User
 from sqlalchemy import and_
@@ -69,7 +70,7 @@ def get_us_senators_access():
 
     response = requests.request("GET", url, headers=headers, params=querystring)
 
-    return response.text
+    return str(response.json())
 
 @app.route('/access_us_congress_info', methods=['GET'])
 def get_us_congress_access():
@@ -87,13 +88,21 @@ def get_us_congress_access():
 
     return str(response.json())
 
-# def get_us_congress_email():
-#     info = get_us_congress_access()
-#     email = info["officials"][]
+@app.route('/fax', methods=['GET'])
+def fax_reps():
+    account_sid = '***REMOVED***'
+    auth_token = '***REMOVED***'
+    client = Client(account_sid, auth_token)
+    content = request.get_json()
+    fax_number = content['fax_1']
+    fax = client.fax.faxes \
+        .create(
+             from_='+15618011480',
+             to= fax_number,
+             media_url='https://www.twilio.com/docs/documents/25/justthefaxmaam.pdf'
+         )
 
-
-
-
+    return fax_number
 
 @app.route('/access_governor_info', methods=['GET'])
 def get_governor_access():
@@ -109,7 +118,7 @@ def get_governor_access():
 
     response = requests.request("GET", url, headers=headers, params=querystring)
 
-    return response.text
+    return str(response.json())
 
 @app.route('/send_sms_to_user', methods=['GET'])
 def send_sms_to_user():
@@ -125,7 +134,7 @@ def send_sms_to_user():
 
     response = requests.request("POST", url, data=payload, headers=headers)
 
-    return response.text
+    return str(response.json())
 
 @app.route('/verify_user', methods=['GET'])
 def get_Verification():
@@ -145,7 +154,7 @@ def get_Verification():
 
     response = requests.request("GET", url, data=payload, headers=headers, params=querystring)
 
-    return response.text
+    return str(response.json())
 
 @app.route('/azure_text_sentiment', methods=['POST'])
 def azure_text_sentiment():
