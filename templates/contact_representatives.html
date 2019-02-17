@@ -1,19 +1,21 @@
 <html>
 <head>
   <script src="https://unpkg.com/@ionic/core@latest/dist/ionic.js"></script>
+  <link rel="stylesheet" type="text/css" href="../static/css/styles.css"/>
   <link rel="stylesheet" href="https://unpkg.com/@ionic/core@latest/css/ionic.bundle.css"/>
+  <link rel="stylesheet" type="text/css" href="../static/css/contact_representatives.css"/>
+  <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed" rel="stylesheet">
 </head>
 <body>
   <ion-app>
     <ion-content>
       <ion-card>
-        <ion-card-content>
           <ion-grid>
-            <ion-row>
+            <ion-row justify-content-center>
               <ion-col>
               </ion-col>
-              <ion-col>
-                <ion-card-title>Tell your representatives how you feel!</ion-card-title>
+              <ion-col size="auto" >
+                  <div id="title">Tell your representatives how you feel!</div>
               </ion-col>
               <ion-col>
               </ion-col>
@@ -21,11 +23,11 @@
             <ion-row>
               <ion-col>
               </ion-col>
-              <ion-col>
-                <ion-card-title>District Representative:</ion-card-title>
+              <ion-col size="auto" >
+                <div id="regular">District Representative:</div>
               </ion-col>
-              <ion-col>
-                <ion-card-title>Bill Nye</ion-card-title>
+              <ion-col size="auto" >
+                <div id="regular">Bill Nye</div>
               </ion-col>
               <ion-col>
               </ion-col>
@@ -53,20 +55,21 @@
         </ion-row>
         <ion-row justify-content-center>
           <ion-col size="auto">
-            <ion-item>
+            <ion-item id="textbox">
               <ion-label position="floating">Type feedback for your representative</ion-label>
-              <ion-textarea></ion-textarea>
+              <ion-textarea rows="8" col="4">
+              </ion-textarea>
             </ion-item>
            </ion-col>
         </ion-row>
-        <ion-row>
+        <ion-row justify-content-center>
           <ion-col>
           </ion-col>
-          <ion-col>
-            <ion-card-title>Senator:</ion-card-title>
+          <ion-col size="auto">
+            <div id="regular">Senator</div>
           </ion-col>
-          <ion-col>
-            <ion-card-title>Beto O'Rourke</ion-card-title>
+          <ion-col size="auto">
+            <div id="regular">Beto O'Rourke</div>
           </ion-col>
           <ion-col>
           </ion-col>
@@ -100,14 +103,14 @@
         </ion-item>
        </ion-col>
     </ion-row>
-    <ion-row>
+    <ion-row justify-content-center>
       <ion-col>
       </ion-col>
-      <ion-col>
-        <ion-card-title>Senator:</ion-card-title>
+      <ion-col size="auto">
+        <div id="regular">Senator:</div>
       </ion-col>
-      <ion-col>
-        <ion-card-title>Ted Cruz</ion-card-title>
+      <ion-col size="auto">
+        <div id="regular">Ted Cruz</div>
       </ion-col>
       <ion-col>
       </ion-col>
@@ -142,7 +145,6 @@
    </ion-col>
 </ion-row>
       </ion-grid>
-    </ion-card-content>
   </ion-card>
 </ion-content>
 </ion-app>
