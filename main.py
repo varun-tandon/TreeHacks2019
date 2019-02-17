@@ -129,7 +129,7 @@ def get_governor_access():
 
     return str(response.json())
 
-@app.route('/send_sms_to_user', methods=['GET'])
+@app.route('/send_sms_to_user', methods=['POST'])
 def send_sms_to_user():
     url = "https://api.authy.com/protected/json/phones/verification/start"
     content = request.get_json()
@@ -143,10 +143,15 @@ def send_sms_to_user():
 
     response = requests.request("POST", url, data=payload, headers=headers)
 
-    return str(response.json())
+    result = dict()
+    if(response.json()['success']):
+        result['status'] = 200
+    else:
+        result['status'] = 400
+    return json.dumps(result)
 
-@app.route('/verify_user', methods=['GET'])
-def get_Verification():
+@app.route('/verify_user', methods=['POST'])
+def get_verification():
     url = "https://api.authy.com/protected/json/phones/verification/check"
     content = request.get_json()
     phone_number = content["phone_number"]
@@ -162,8 +167,12 @@ def get_Verification():
         }
 
     response = requests.request("GET", url, data=payload, headers=headers, params=querystring)
-
-    return str(response.json())
+    result = dict()
+    if(response.json()['success']):
+        result['status'] = 200
+    else:
+        result['status'] = 400
+    return json.dumps(result)
 
 @app.route('/azure_text_sentiment', methods=['POST'])
 def azure_text_sentiment():
