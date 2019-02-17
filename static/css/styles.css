@@ -5,6 +5,12 @@
   font-family: 'Roboto Condensed', sans-serif;
 }
 
+#title {
+  color: black;
+  font-size: 40;
+  font-family: 'Roboto Condensed', sans-serif;
+}
+
 #subtitle {
   color: gray;
   font-size: 17;
