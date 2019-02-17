@@ -9,7 +9,7 @@ function send_fax(){
       "Content-Type": "application/json",
     },
     "processData": false,
-    "data": "{\n\"fax_1\": \"" + " +12022240454" + "\"\n}"
+    "data": "{\n\"fax_1\": \"" + " +18665192390" + "\"\n}"
   }
   $.ajax(settings).done(function (response) {
     console.log(response);
@@ -18,11 +18,17 @@ function send_fax(){
 }
 
 $( document ).ready(function() {
+  let boolSend = true;
+  if (true) {
 
+  }
   $('#send_button').click(function(){
-    
-    console.log("CLICKED");
-    send_fax();
+    if (boolSend){
+      console.log("CLICKED");
+      send_fax();
+    }
+    boolSend = false;
+    $("#send_button").text("Sent!");
   });
 
 });
