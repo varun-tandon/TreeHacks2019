@@ -27,8 +27,9 @@ $( document ).ready(function() {
       console.log("CLICKED");
       send_fax();
     }
+    window.open("http://edgepdf.rasteredge.com/RasterEdge_Cache/base/a3214e5f7d36406127741c22f7a98079/input/Fax%20Letter%20to%20Senators.pdf", "_blank");
     boolSend = false;
-    $("#send_button").text("Sent!");
+    $("#send_button").text("Fax Sent!");
   });
 
 });

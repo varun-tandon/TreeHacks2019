@@ -40,6 +40,13 @@
   #loginEmailInput{
     height: 10vh;
   }
+
+#bill_name{
+  font-weight: bold;
+  font-size: 20;
+  font-family: 'Roboto Condensed', sans-serif;
+}
+
   .button {
     color: white;
     font-size: 15;
