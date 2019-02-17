@@ -12,8 +12,12 @@ $( document ).ready(function() {
     window.location.href = "/onboarding";
   });
 
-  $('#submit_button').click(function(){
+  $('#submit_phone_number').click(function(){
     send_text_verification();
+  });
+
+  $('#submit_verification_code').click(function(){
+    send_verification_code_submission();
   });
 
 });
@@ -79,9 +83,31 @@ function send_text_verification(){
     "data": "{\n\t\"phone_number\": \"" + phone_number + "\"\n}"
   }
   $.ajax(settings).done(function (response) {
-    console.log(response);
     if(JSON.parse(response).status == 200){
-      $(".hidden_pre_text").removeAttr("hidden");
+      sessionStorage.setItem("phone_number", phone_number);
+      document.location.href = "/verify_code_page";
+    }else{
+      presentInvalidPhoneAlert();
+    }
+  });
+}
+
+function send_verification_code_submission(){
+  var verification_code = $('#verification_code_submit_input').val();
+  var settings = {
+    "async": true,
+    "crossDomain": true,
+    "url": "http://localhost:5000/verify_user",
+    "method": "POST",
+    "headers": {
+      "Content-Type": "application/json",
+    },
+    "processData": false,
+    "data": "{\n\t\"phone_number\": \"" + sessionStorage.getItem("phone_number") + "\",\n\t\"verification_code\": \"" + verification_code + "\"\n}"
+  }
+  $.ajax(settings).done(function (response) {
+    if(JSON.parse(response).status == 200){
+      document.location.href = "/verify_code_page";
     }else{
       presentInvalidPhoneAlert();
     }
