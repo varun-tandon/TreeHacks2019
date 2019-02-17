@@ -5,6 +5,7 @@ import random
 import hashlib, uuid
 import requests
 import sendgrid
+from twilio.rest import Client
 from .src.entities.entity import Session, engine, Base
 from .src.entities.user import User
 from sqlalchemy import and_
@@ -32,12 +33,16 @@ def onboard():
 def bill_card_page():
     return render_template('homepage.html')
 
+@app.route('/verify_code_page')
+def verify_code_page():
+    return render_template('verify_code_page.html')
+
 @app.route('/create_user', methods=['POST'])
 def create_user():
     request_json = request.get_json()
     hashed_password = hashlib.sha512(request_json['password'].encode('utf-8')).hexdigest()
     if(session.query(User).filter(User.email == request_json['email']).count() == 0):
-        new_user = User(request_json['email'], hashed_password)
+        new_user = User(request_json['email'], hashed_password, request_json['zipcode'])
         session.add(new_user)
         session.commit()
         return "completed"
@@ -78,9 +83,9 @@ def get_us_senators_access():
 
     response = requests.request("GET", url, headers=headers, params=querystring)
 
-    return response.text
+    return str(response.json())
 
-@app.route('/access_us_congress_info', methods=['GET'])
+@app.route('/access_us_congress_info', methods=['POST'])
 def get_us_congress_access():
     url = "https://q4ktfaysw3.execute-api.us-east-1.amazonaws.com/treehacks/legislators"
     content = request.get_json()
@@ -96,13 +101,21 @@ def get_us_congress_access():
 
     return str(response.json())
 
-# def get_us_congress_email():
-#     info = get_us_congress_access()
-#     email = info["officials"][]
+@app.route('/fax', methods=['GET'])
+def fax_reps():
+    account_sid = '***REMOVED***'
+    auth_token = '***REMOVED***'
+    client = Client(account_sid, auth_token)
+    content = request.get_json()
+    fax_number = content['fax_1']
+    fax = client.fax.faxes \
+        .create(
+             from_='+15618011480',
+             to= fax_number,
+             media_url='https://www.twilio.com/docs/documents/25/justthefaxmaam.pdf'
+         )
 
-
-
-
+    return fax_number
 
 @app.route('/access_governor_info', methods=['GET'])
 def get_governor_access():
@@ -118,9 +131,9 @@ def get_governor_access():
 
     response = requests.request("GET", url, headers=headers, params=querystring)
 
-    return response.text
+    return str(response.json())
 
-@app.route('/send_sms_to_user', methods=['GET'])
+@app.route('/send_sms_to_user', methods=['POST'])
 def send_sms_to_user():
     url = "https://api.authy.com/protected/json/phones/verification/start"
     content = request.get_json()
@@ -134,10 +147,15 @@ def send_sms_to_user():
 
     response = requests.request("POST", url, data=payload, headers=headers)
 
-    return response.text
+    result = dict()
+    if(response.json()['success']):
+        result['status'] = 200
+    else:
+        result['status'] = 400
+    return json.dumps(result)
 
-@app.route('/verify_user', methods=['GET'])
-def get_Verification():
+@app.route('/verify_user', methods=['POST'])
+def get_verification():
     url = "https://api.authy.com/protected/json/phones/verification/check"
     content = request.get_json()
     phone_number = content["phone_number"]
@@ -153,8 +171,12 @@ def get_Verification():
         }
 
     response = requests.request("GET", url, data=payload, headers=headers, params=querystring)
-
-    return response.text
+    result = dict()
+    if(response.json()['success']):
+        result['status'] = 200
+    else:
+        result['status'] = 400
+    return json.dumps(result)
 
 @app.route('/azure_text_sentiment', methods=['POST'])
 def azure_text_sentiment():
@@ -198,3 +220,8 @@ def send_email_to_rep():
     print(response.headers)
 
     return name
+
+@app.route('/get_zip_code', methods=['GET'])
+def get_user_zipcode():
+    user = session.query(User).filter(session.query(User).filter(and_(User.email == request_json['email'], User.password == request_json['access_token']))).one()
+    return user.zipcode
