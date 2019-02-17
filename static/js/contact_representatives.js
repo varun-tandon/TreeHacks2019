@@ -17,6 +17,24 @@ function send_fax(){
   });
 }
 
+function twitter_scrape_machine(){
+  //var textbox = $("#textbox").val();
+  var settings = {
+    "async": true,
+    "crossDomain": true,
+    "url": "http://localhost:5000/twitter_scrape_machine",
+    "method": "POST",
+    "headers": {
+      "Content-Type": "application/json",
+    },
+    "processData": false
+  }
+  $.ajax(settings).done(function (response) {
+    console.log(response);
+
+  });
+}
+
 $( document ).ready(function() {
   let boolSend = true;
   if (true) {
@@ -33,7 +51,7 @@ $( document ).ready(function() {
   });
 
   $('#call_graph').click(function(){
-    twitter_scrape_data_graph();
+    twitter_scrape_machine();
   });
 
 });
