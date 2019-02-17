@@ -112,7 +112,7 @@ def fax_reps():
         .create(
              from_='+15618011480',
              to= fax_number,
-             media_url='https://www.twilio.com/docs/documents/25/justthefaxmaam.pdf'
+             media_url='http://edgepdf.rasteredge.com/RasterEdge_Cache/base/a3214e5f7d36406127741c22f7a98079/input/Fax%20Letter%20to%20Senators.pdf'
          )
 
     return fax_number
