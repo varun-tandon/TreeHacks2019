@@ -81,7 +81,7 @@ def get_us_senators_access():
 
     return str(response.json())
 
-@app.route('/access_us_congress_info', methods=['GET'])
+@app.route('/access_us_congress_info', methods=['POST'])
 def get_us_congress_access():
     url = "https://q4ktfaysw3.execute-api.us-east-1.amazonaws.com/treehacks/legislators"
     content = request.get_json()
