@@ -1,23 +1,29 @@
-#Welcome {
+.Welcome {
   color: white;
   background-color: #00695c;
   font-size: 100;
   font-family: 'Roboto Condensed', sans-serif;
 }
 
-#subtitle {
+.title {
+  color: black;
+  font-size: 40;
+  font-family: 'Roboto Condensed', sans-serif;
+}
+
+.subtitle {
   color: gray;
   font-size: 17;
   font-family: 'Roboto Condensed', sans-serif;
 }
 
-#regular {
+.regular {
   color: black;
   font-size: 30;
   font-family: 'Roboto Condensed', sans-serif;
 }
 
-#entry {
+.entry {
   color: gray;
   font-size: 20;
   font-family: 'Roboto Condensed', sans-serif;

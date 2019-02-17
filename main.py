@@ -4,9 +4,11 @@ import os, sys
 import random
 import hashlib, uuid
 import requests
+import sendgrid
 from .src.entities.entity import Session, engine, Base
 from .src.entities.user import User
 from sqlalchemy import and_
+from sendgrid.helpers.mail import *
 
 Base.metadata.create_all(engine)
 
@@ -159,3 +161,23 @@ def azure_text_sentiment():
     # score = float(text_score)
     # print(score)
     return text_score
+
+@app.route('/send_email_to_rep', methods=['POST'])
+def send_email_to_rep():
+    sg = sendgrid.SendGridAPIClient(apikey='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')
+    from_email = Email("yourconstiuents@insession.com")
+    content = request.get_json()
+    representative_email = content["representative_email"]
+    representative_name = content["representative_name"]
+    name = content["constituent_name"]
+    text = content["email_content"]
+    to_email = Email(representative_email)
+    subject = "I'm voicing my opinion"
+    content = Content("text/plain", "Dear " + representative_name + ",  " + text + "\n""From, ""\n" + name)
+    mail = Mail(from_email, subject, to_email, content)
+    response = sg.client.mail.send.post(request_body=mail.get())
+    print(response.status_code)
+    print(response.body)
+    print(response.headers)
+
+    return name
