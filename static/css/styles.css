@@ -28,9 +28,26 @@
   font-size: 20;
   font-family: 'Roboto Condensed', sans-serif;
 }
+.center-screen {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  min-height: 100vh;
+}
 
-<link href="https://fonts.googleapis.com/css?family=Roboto+Condensed" rel="stylesheet">
+#loginEmailInput{
+  height: 10vh;
+}
 
+#loginPasswordInput{
+  height: 10vh;
+}
+
+/* input{
+  size: 35;
+} */
 /* #00695c
 #439889
 #003d33 */
