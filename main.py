@@ -151,5 +151,3 @@ def azure_text_sentiment():
     # score = float(text_score)
     # print(score)
     return text_score
-
-def
