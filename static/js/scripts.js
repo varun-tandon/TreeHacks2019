@@ -9,7 +9,7 @@ $( document ).ready(function() {
   });
 
   $('#signup_page_nav_button').click(function() {
-    window.location.href = "/onboarding";
+    document.location.href = "/onboarding";
   });
 
   $('#submit_phone_number').click(function(){
@@ -21,6 +21,12 @@ $( document ).ready(function() {
   });
 
 });
+
+var full_name = "";
+var email = "";
+var password = "";
+var zipcode = 0;
+var phone_number = 0;
 
 function login(email, password){
   var settings = {
@@ -45,6 +51,8 @@ function login(email, password){
   });
 }
 
+
+/* Alerts */
 async function presentAlert() {
   const alertController = document.querySelector('ion-alert-controller');
   await alertController.componentOnReady();
@@ -69,8 +77,43 @@ async function presentInvalidPhoneAlert() {
   return await alert.present();
 }
 
+async function presentVerifiedAlert() {
+  const alertController = document.querySelector('ion-alert-controller');
+  await alertController.componentOnReady();
+
+  const alert = await alertController.create({
+    header: "That's it!",
+    message: "Your account is ready!",
+    buttons: ['OK']
+  });
+  return await alert.present();
+}
+
+async function presentFailedVerificationAlert() {
+  const alertController = document.querySelector('ion-alert-controller');
+  await alertController.componentOnReady();
+
+  const alert = await alertController.create({
+    header: "Invalid Verification Code",
+    message: "Please try again.",
+    buttons: ['OK']
+  });
+  return await alert.present();
+}
+
 function send_text_verification(){
-  var phone_number = $("#phone_number").val();
+  phone_number = $("#phone_number").val();
+  sessionStorage.setItem("phone_number", phone_number);
+  // all the user data
+  full_name = $("#first_name").val() + " " + $("#last_name").val();
+  email = $("#email").val()
+
+  sessionStorage.setItem("email", email);
+
+  password = $("#password").val()
+  sessionStorage.setItem("password", password);
+  zipcode = $("#zipcode").val()
+
   var settings = {
     "async": true,
     "crossDomain": true,
@@ -84,8 +127,7 @@ function send_text_verification(){
   }
   $.ajax(settings).done(function (response) {
     if(JSON.parse(response).status == 200){
-      sessionStorage.setItem("phone_number", phone_number);
-      document.location.href = "/verify_code_page";
+      document.location.href = "/verify_code_page"
     }else{
       presentInvalidPhoneAlert();
     }
@@ -107,32 +149,31 @@ function send_verification_code_submission(){
   }
   $.ajax(settings).done(function (response) {
     if(JSON.parse(response).status == 200){
-      document.location.href = "/verify_code_page";
+      register_user(sessionStorage.getItem("email"), sessionStorage.getItem("password"));
+      presentVerifiedAlert();
+      document.location.href = "/homepage";
     }else{
-      presentInvalidPhoneAlert();
+      presentFailedVerificationAlert();
     }
   });
 }
 
-function send_text_verification(){
-  var phone_number = $("#phone_number").val();
+
+
+function register_user(email, password){
   var settings = {
     "async": true,
     "crossDomain": true,
-    "url": "http://localhost:5000/send_sms_to_user",
+    "url": "http://localhost:5000/create_user",
     "method": "POST",
     "headers": {
       "Content-Type": "application/json",
     },
     "processData": false,
-    "data": "{\n\t\"phone_number\": \"" + phone_number + "\"\n}"
+    "data": "{\n\t\"email\": \""+ email + "\",\n\t\"password\": \"" + password + "\"\n\}"
   }
   $.ajax(settings).done(function (response) {
-    console.log(response);
-    if(JSON.parse(response).status == 200){
-      $(".hidden_pre_text").removeAttr("hidden");
-    }else{
-      presentInvalidPhoneAlert();
-    }
+    console.log(response)
+    //document.location.href = "/verify_code_page";
   });
 }

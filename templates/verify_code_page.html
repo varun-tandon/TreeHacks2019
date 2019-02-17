@@ -1,0 +1,56 @@
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script src="https://unpkg.com/@ionic/core@latest/dist/ionic.js"></script>
+  <link rel="stylesheet" href="https://unpkg.com/@ionic/core@latest/css/ionic.bundle.css"/>
+  <link rel="stylesheet" type="text/css" href="../static/css/styles.css"/>
+  <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed" rel="stylesheet">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="../static/js/scripts.js"></script>
+</head>
+<body>
+  <ion-app>
+    <ion-content>
+      <ion-slide>
+        <ion-grid>
+          <ion-row>
+            <ion-col>
+              <div class="regular">
+                Verify your account
+              </div>
+            </ion-col>
+          </ion-row>
+          <ion-row>
+          </ion-row>
+          <ion-row>
+          </ion-row>
+          <ion-row>
+            <ion-col>
+              <div class="subtitle">
+                Enter the code texted to you here:
+              </div>
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col>
+              <ion-item>
+                <ion-label position="floating">
+                  <div id="verification_code" class="entry">Verification Code</div>
+                </ion-label>
+                <ion-input id="verification_code_submit_input"></ion-input>
+              </ion-item>
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col>
+              <ion-button shape="round" id="submit_verification_code">
+                <div class="button">Submit</div>
+              </ion-button>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+      </ion-slide>
+      <ion-alert-controller class="hydrated"></ion-alert-controller>
+    </ion-content>
+  </ion-app>
+  </html>

@@ -42,7 +42,7 @@ def create_user():
     request_json = request.get_json()
     hashed_password = hashlib.sha512(request_json['password'].encode('utf-8')).hexdigest()
     if(session.query(User).filter(User.email == request_json['email']).count() == 0):
-        new_user = User(request_json['email'], hashed_password, request_json['zipcode'])
+        new_user = User(request_json['email'], hashed_password)
         session.add(new_user)
         session.commit()
         return "completed"
