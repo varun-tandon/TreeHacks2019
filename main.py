@@ -98,7 +98,7 @@ def send_sms_to_user():
     url = "https://api.authy.com/protected/json/phones/verification/start"
     content = request.get_json()
     phone_number = content["phone_number"]
-    payload = "api_key=tzsvpYNDQSEsQqFnYT5sNeCWNLXs7Qum&via=sms&phone_number=" + phone_number + "&country_code=1&undefined="
+    payload = "api_key=***REMOVED***&via=sms&phone_number=" + phone_number + "&country_code=1&undefined="
     headers = {
         'Content-Type': "application/x-www-form-urlencoded",
         'cache-control': "no-cache",
@@ -107,4 +107,49 @@ def send_sms_to_user():
 
     response = requests.request("POST", url, data=payload, headers=headers)
 
-    print(response.text)
+    return response.text
+
+@app.route('/verify_user', methods=['GET'])
+def get_Verification():
+    url = "https://api.authy.com/protected/json/phones/verification/check"
+    content = request.get_json()
+    phone_number = content["phone_number"]
+    verification_code = content["verification_code"]
+    url = "https://api.authy.com/protected/json/phones/verification/check"
+    querystring = {"api_key":"***REMOVED***","verification_code": verification_code,"phone_number": phone_number,"country_code":"1"}
+
+    payload = ""
+    headers = {
+        'Content-Type': "application/x-www-form-urlencoded",
+        'cache-control': "no-cache",
+        'Postman-Token': "3f68ad36-0caf-4713-860f-27f145fe85b8"
+        }
+
+    response = requests.request("GET", url, data=payload, headers=headers, params=querystring)
+
+    return response.text
+
+@app.route('/azure_text_sentiment', methods=['POST'])
+def azure_text_sentiment():
+    url = "https://westus.api.cognitive.microsoft.com/text/analytics/v2.0/sentiment"
+    content = request.get_json()
+    text = content['text']
+    payload = " {\n        \"documents\": [\n            {\n                \"language\": \"en\",\n                \"id\": \"1\",\n                \"text\": \""+ text +"\"  \n}\n        ]\n    }"
+
+    headers = {
+        'Ocp-Apim-Subscription-Key': "***REMOVED***",
+        'Content-Type': "application/json",
+        'Accept': "application/json",
+        'cache-control': "no-cache",
+        'Postman-Token': "ee259beb-4450-4d89-9023-0fded2a3998e"
+        }
+
+
+    response = requests.request("POST", url, data=payload, headers=headers)
+    json_response = json.dumps(response.text)
+    text_score = json_response[41:59]
+    # score = float(text_score)
+    # print(score)
+    return text_score
+
+def
