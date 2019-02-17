@@ -128,3 +128,26 @@ def get_Verification():
     response = requests.request("GET", url, data=payload, headers=headers, params=querystring)
 
     return response.text
+
+@app.route('/azure_text_sentiment', methods=['POST'])
+def azure_text_sentiment():
+    url = "https://westus.api.cognitive.microsoft.com/text/analytics/v2.0/sentiment"
+    content = request.get_json()
+    text = content['text']
+    payload = " {\n        \"documents\": [\n            {\n                \"language\": \"en\",\n                \"id\": \"1\",\n                \"text\": \""+ text +"\"  \n}\n        ]\n    }"
+
+    headers = {
+        'Ocp-Apim-Subscription-Key': "***REMOVED***",
+        'Content-Type': "application/json",
+        'Accept': "application/json",
+        'cache-control': "no-cache",
+        'Postman-Token': "ee259beb-4450-4d89-9023-0fded2a3998e"
+        }
+
+
+    response = requests.request("POST", url, data=payload, headers=headers)
+    json_response = json.dumps(response.text)
+    text_score = json_response[41:59]
+    # score = float(text_score)
+    # print(score)
+    return text_score
