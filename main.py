@@ -4,9 +4,11 @@ import os, sys
 import random
 import hashlib, uuid
 import requests
+import sendgrid
 from .src.entities.entity import Session, engine, Base
 from .src.entities.user import User
 from sqlalchemy import and_
+from sendgrid.helpers.mail import *
 
 Base.metadata.create_all(engine)
 
@@ -17,6 +19,18 @@ app = Flask(__name__)
 @app.route('/')
 def homepage():
     return render_template('index.html')
+
+@app.route('/login')
+def login():
+    return render_template('login.html')
+
+@app.route('/onboarding')
+def onboard():
+    return render_template('intro_slides.html')
+
+@app.route('/homepage')
+def bill_card_page():
+    return render_template('homepage.html')
 
 @app.route('/create_user', methods=['POST'])
 def create_user():
@@ -33,9 +47,14 @@ def create_user():
 def login_user():
     request_json = request.get_json()
     hashed_password = hashlib.sha512(request_json['password'].encode('utf-8')).hexdigest()
+    response = dict()
     if(session.query(User).filter(and_(User.email == request_json['email'], User.password == hashed_password)).count() == 1):
-        return "SUCCESS"
-    return "0 or more users"
+        response['status'] = 200
+        response['pass_key'] = hashed_password
+        return json.dumps(response)
+    else:
+        response['status'] = 400
+        return json.dumps(response)
 
 # NATIONAL_EXEC : Refers to the President, VP, etc
 # NATIONAL_UPPER : Refers to U.S. Senate members
@@ -75,7 +94,15 @@ def get_us_congress_access():
 
     response = requests.request("GET", url, headers=headers, params=querystring)
 
-    return response.text
+    return str(response.json())
+
+# def get_us_congress_email():
+#     info = get_us_congress_access()
+#     email = info["officials"][]
+
+
+
+
 
 @app.route('/access_governor_info', methods=['GET'])
 def get_governor_access():
@@ -151,3 +178,23 @@ def azure_text_sentiment():
     # score = float(text_score)
     # print(score)
     return text_score
+
+@app.route('/send_email_to_rep', methods=['POST'])
+def send_email_to_rep():
+    sg = sendgrid.SendGridAPIClient(apikey='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')
+    from_email = Email("yourconstiuents@insession.com")
+    content = request.get_json()
+    representative_email = content["representative_email"]
+    representative_name = content["representative_name"]
+    name = content["constituent_name"]
+    text = content["email_content"]
+    to_email = Email(representative_email)
+    subject = "I'm voicing my opinion"
+    content = Content("text/plain", "Dear " + representative_name + ",  " + text + "\n""From, ""\n" + name)
+    mail = Mail(from_email, subject, to_email, content)
+    response = sg.client.mail.send.post(request_body=mail.get())
+    print(response.status_code)
+    print(response.body)
+    print(response.headers)
+
+    return name

@@ -1,0 +1,30 @@
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script src="https://unpkg.com/@ionic/core@latest/dist/ionic.js"></script>
+  <link rel="stylesheet" href="https://unpkg.com/@ionic/core@latest/css/ionic.bundle.css"/>
+  <link rel="stylesheet" href="../static/css/styles.css"/>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="../static/js/scripts.js"></script>
+</head>
+<body>
+  <ion-app>
+    <ion-content fullscreen>
+      <div class="center-screen">
+        <ion-list>
+          <ion-item>
+            <ion-label position="floating">Email</ion-label>
+            <ion-input id="loginEmailInput" size="100"></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-label position="floating">Password</ion-label>
+            <ion-input id="loginPasswordInput" type="password"></ion-input>
+          </ion-item>
+        </ion-list>
+        <ion-alert-controller class="hydrated"></ion-alert-controller>
+        <ion-button shape="round" id="login_form_button">Login</ion-button>
+      </div>
+    </ion-content>
+  </ion-app>
+</body>
+</html>
