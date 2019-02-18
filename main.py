@@ -83,7 +83,7 @@ def get_us_senators_access():
     querystring = {"address": content['zipcode'], "level": "NATIONAL_UPPER"}
 
     headers = {
-        'x-api-key': "2e1uvo7yeX50ZGHvctPxi8ZWubhggyOydIWvOa5c",
+        'x-api-key': "xapi",
         'Content-Type': "application/x-www-form-urlencoded",
         }
 
@@ -99,7 +99,7 @@ def get_us_congress_access():
     querystring = {"address": content['zipcode'], "level": "NATIONAL_LOWER"}
 
     headers = {
-        'x-api-key': "2e1uvo7yeX50ZGHvctPxi8ZWubhggyOydIWvOa5c",
+        'x-api-key': "xapikey",
         'Content-Type': "application/x-www-form-urlencoded",
         }
 
@@ -109,16 +109,16 @@ def get_us_congress_access():
 
 @app.route('/fax', methods=['POST'])
 def fax_reps():
-    account_sid = 'ACfc69560af65a93d8613594563ee29ce0'
-    auth_token = 'abbe8c629b1dc6195541f75ad39e209c'
+    account_sid = 'NewKey'
+    auth_token = 'OtherKey'
     client = Client(account_sid, auth_token)
     content = request.get_json()
     fax_number = content['fax_1']
     fax = client.fax.faxes \
         .create(
-             from_='+15618011480',
+             from_='+14083062806',
              to= fax_number,
-             media_url='http://edgepdf.rasteredge.com/RasterEdge_Cache/base/a3214e5f7d36406127741c22f7a98079/input/Fax%20Letter%20to%20Senators.pdf'
+             media_url='https://www.pdfhost.net/index.php?Action=DownloadFile&id=ede81f1e97bb76f4d706872df2a60690'
          )
 
     return fax_number
@@ -131,7 +131,7 @@ def get_governor_access():
     querystring = {"address": content['zipcode'], "level": "STATE_EXEC"}
 
     headers = {
-        'x-api-key': "2e1uvo7yeX50ZGHvctPxi8ZWubhggyOydIWvOa5c",
+        'x-api-key': "adfawef",
         'Content-Type': "application/x-www-form-urlencoded",
         }
 
@@ -167,7 +167,7 @@ def get_verification():
     phone_number = content["phone_number"]
     verification_code = content["verification_code"]
     url = "https://api.authy.com/protected/json/phones/verification/check"
-    querystring = {"api_key":"stO4POVY4AJv5ucsr3O3oPbfk92p2R6i","verification_code": verification_code,"phone_number": phone_number,"country_code":"1"}
+    querystring = {"api_key":"apikey","verification_code": verification_code,"phone_number": phone_number,"country_code":"1"}
 
     payload = ""
     headers = {
@@ -192,7 +192,7 @@ def azure_text_sentiment():
     payload = " {\n        \"documents\": [\n            {\n                \"language\": \"en\",\n                \"id\": \"1\",\n                \"text\": \""+ text +"\"  \n}\n        ]\n    }"
 
     headers = {
-        'Ocp-Apim-Subscription-Key': "ee6edf1be3b445009c0b19fdea9f2cfb",
+        'Ocp-Apim-Subscription-Key': "apikey",
         'Content-Type': "application/json",
         'Accept': "application/json",
         'cache-control': "no-cache",
@@ -209,7 +209,7 @@ def azure_text_sentiment():
 
 @app.route('/send_email_to_rep', methods=['POST'])
 def send_email_to_rep():
-    sg = sendgrid.SendGridAPIClient(apikey='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')
+    sg = sendgrid.SendGridAPIClient(apikey='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')
     from_email = Email("yourconstiuents@insession.com")
     content = request.get_json()
     representative_email = content["representative_email"]
