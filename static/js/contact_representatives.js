@@ -9,7 +9,7 @@ function send_fax(){
       "Content-Type": "application/json",
     },
     "processData": false,
-    "data": "{\n\"fax_1\": \"" + " +18665192390" + "\"\n}"
+    "data": "{\n\"fax_1\": \"" + "+18447054354" + "\"\n}"
   }
   $.ajax(settings).done(function (response) {
     console.log(response);
@@ -45,7 +45,7 @@ $( document ).ready(function() {
       console.log("CLICKED");
       send_fax();
     }
-    window.open("http://edgepdf.rasteredge.com/RasterEdge_Cache/base/a3214e5f7d36406127741c22f7a98079/input/Fax%20Letter%20to%20Senators.pdf", "_blank");
+    window.open("https://drive.google.com/file/d/1gTT9nBphwek_aDkgIv_88kX_Vrs-b-rv/view?usp=sharing", "_blank");
     boolSend = false;
     $("#send_button").text("Fax Sent!");
   });
