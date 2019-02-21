@@ -2,7 +2,7 @@ import requests
 
 url = "https://api.authy.com/protected/json/phones/verification/start"
 
-querystring = {"api_key":"stO4POVY4AJv5ucsr3O3oPbfk92p2R6i","via":"sms","phone_number":"5618011480","country_code":"1"}
+querystring = {"api_key":"","via":"sms","phone_number":"5618011480","country_code":"1"}
 
 payload = ""
 headers = {

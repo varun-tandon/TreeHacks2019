@@ -8,7 +8,7 @@ def get_rep_access()
     querystring = {"address": json.loads(requests.get_json())['zipcode']}
 
     headers = {
-        'x-api-key': "2e1uvo7yeX50ZGHvctPxi8ZWubhggyOydIWvOa5c",
+        'x-api-key': "",
         'Content-Type': "application/x-www-form-urlencoded",
         }
 

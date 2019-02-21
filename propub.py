@@ -8,7 +8,7 @@ url = "https://api.propublica.org/congress/v1/115/house/bills/introduced.json"
 #querystring = {"summary_short"}
 
 headers = {
-    'X-API-Key': 'DthNpqjA4QjYSXHy65GqeHHHcnFznlZV5qh2LOLI',
+    'X-API-Key': '',
 }
 
 

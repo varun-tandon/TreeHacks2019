@@ -4,7 +4,7 @@ def get_Verification():
 
     url = "https://api.authy.com/protected/json/phones/verification/check"
 
-    querystring = {"api_key":"stO4POVY4AJv5ucsr3O3oPbfk92p2R6i","verification_code": verification_code,"phone_number": phone_number,"country_code":"1"}
+    querystring = {"api_key":"","verification_code": verification_code,"phone_number": phone_number,"country_code":"1"}
 
     payload = ""
     headers = {

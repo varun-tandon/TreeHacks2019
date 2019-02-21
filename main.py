@@ -144,7 +144,7 @@ def send_sms_to_user():
     url = "https://api.authy.com/protected/json/phones/verification/start"
     content = request.get_json()
     phone_number = content["phone_number"]
-    payload = "api_key=stO4POVY4AJv5ucsr3O3oPbfk92p2R6i&via=sms&phone_number=" + phone_number + "&country_code=1&undefined="
+    payload = "api_key=TWILIO_API&via=sms&phone_number=" + phone_number + "&country_code=1&undefined="
     headers = {
         'Content-Type': "application/x-www-form-urlencoded",
         'cache-control': "no-cache",
@@ -209,7 +209,7 @@ def azure_text_sentiment():
 
 @app.route('/send_email_to_rep', methods=['POST'])
 def send_email_to_rep():
-    sg = sendgrid.SendGridAPIClient(apikey='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')
+    sg = sendgrid.SendGridAPIClient(apikey='SENDGRID_API_KEY')
     from_email = Email("yourconstiuents@insession.com")
     content = request.get_json()
     representative_email = content["representative_email"]
@@ -234,10 +234,10 @@ def get_user_zipcode():
 
 @app.route('/twitter_scrape_machine', methods=['POST'])
 def twitter_scrape_data_graph():
-    api = twitter.Api(consumer_key='RbLqqwTq5IhceE9j4Xlj7mb8o',
-                          consumer_secret='1K65lSshNgf3yBFjY3ZIDL2kbfbezcB2OLp1KcuHM5Z0hXaZTS',
-                          access_token_key='862164873555451904-vNcGLmRlzfNOJqJ1L8owlhvDT7zI8a6',
-                          access_token_secret='ysQE7mYx1kmFTGpIfI6aU4h4qXbLRQ3eQbvTq90wCBYth')
+    api = twitter.Api(consumer_key='',
+                          consumer_secret='',
+                          access_token_key='',
+                          access_token_secret='')
     results = api.GetSearch(
         raw_query="q=Kamala Harris%20&result_type=recent&since=2014-07-19&count=100")
 
@@ -252,7 +252,7 @@ def twitter_scrape_data_graph():
         text = str(results[i].text.encode('ascii', errors='ignore'))
         payload = "\n{\n\t\"documents\": [{\n\t\t\"language\": \"en\",\n\t\t\"id\": \"1\",\n\t\t\"text\": \"" + text + "\"\n\t}\n}"
         headers = {
-            'Ocp-Apim-Subscription-Key': "ee6edf1be3b445009c0b19fdea9f2cfb",
+            'Ocp-Apim-Subscription-Key': "",
             'Content-Type': "application/json",
             'Accept': "application/json",
             'cache-control': "no-cache",
