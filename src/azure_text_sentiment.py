@@ -8,7 +8,7 @@ def azure_text_sentiment():
     payload = " {\n        \"documents\": [\n            {\n                \"language\": \"en\",\n                \"id\": \"1\",\n                \"text\": \"I totally agree with this bill. I think that you should vote it through because it is essential to our environment.\"\n            },\n            {\n                \"language\": \"en\",\n                \"id\": \"2\",\n                \"text\": \"I think this bill is terrible. If you vote yes, I will not vote for you again.\"\n            },\n            {\n                \"language\": \"en\",\n                \"id\": \"3\",\n                \"text\": \"Everyone in my family liked the trail but thought it was too challenging for the less athletic among us. Not necessarily recommended for small children.\"\n            },\n            {\n                \"language\": \"en\",\n                \"id\": \"4\",\n                \"text\": \"It was foggy so we missed the spectacular views, but the trail was ok. Worth checking out if you are in the area.\"\n            },                \n            {\n                \"language\": \"en\",\n                \"id\": \"5\",\n                \"text\": \"This is my favorite trail. It has beautiful views and many places to stop and rest\"\n            }\n        ]\n    }"
 
     headers = {
-        'Ocp-Apim-Subscription-Key': "***REMOVED***",
+        'Ocp-Apim-Subscription-Key': "",
         'Content-Type': "application/json",
         'Accept': "application/json",
         'cache-control': "no-cache",

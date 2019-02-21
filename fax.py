@@ -3,8 +3,8 @@ from twilio.rest import Client
 
 def fax_reps():
 
-    account_sid = '***REMOVED***'
-    auth_token = '***REMOVED***'
+    account_sid = ''
+    auth_token = ''
     client = Client(account_sid, auth_token)
 
     fax = client.fax.faxes \

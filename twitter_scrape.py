@@ -9,10 +9,10 @@ import plotly.graph_objs as go
 
 
 def twitter_scrape_data_graph():
-    api = twitter.Api(consumer_key='***REMOVED***',
-                          consumer_secret='***REMOVED***',
-                          access_token_key='***REMOVED***',
-                          access_token_secret='***REMOVED***')
+    api = twitter.Api(consumer_key='',
+                          consumer_secret='',
+                          access_token_key='',
+                          access_token_secret='')
     results = api.GetSearch(
         raw_query="q=Kamala Harris%20&result_type=recent&since=2014-07-19&count=100")
 
@@ -27,7 +27,7 @@ def twitter_scrape_data_graph():
         text = str(results[i].text.encode('ascii', errors='ignore'))
         payload = "\n{\n\t\"documents\": [{\n\t\t\"language\": \"en\",\n\t\t\"id\": \"1\",\n\t\t\"text\": \"" + text + "\"\n\t}\n}"
         headers = {
-            'Ocp-Apim-Subscription-Key': "***REMOVED***",
+            'Ocp-Apim-Subscription-Key': "",
             'Content-Type': "application/json",
             'Accept': "application/json",
             'cache-control': "no-cache",
