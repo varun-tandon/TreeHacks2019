@@ -2,7 +2,7 @@
 
 ## Inspiration
 
-We were sick and tired of Congress listening to money and lobbyists over their own constiuents. It was almst liek Congress didn't even want to be contacted. Of the 535 Congresspersons, only approximately 50 had actual email addresses. 
+We were sick and tired of Congress listening to money and lobbyists over their own constiuents. It was almst like Congress didn't even want to be contacted. Of the 535 Congresspersons, only approximately 50 had actual email addresses. 
 
 How do you contact the rest? 
 
